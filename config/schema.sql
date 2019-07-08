@@ -1,12 +1,36 @@
-DROP DATABASE IF EXISTS wishes_db;
+DROP DATABASE IF EXISTS cryptobob_db;
 
-CREATE DATABASE wishes_db;
+CREATE DATABASE cryptobob_db;
 
-USE wishes_db;
+USE cryptobob_db;
 
-CREATE TABLE wishes(
+CREATE TABLE users (
     id INTEGER AUTO_INCREMENT,
-    wish VARCHAR(100) NOT NULL,
+    userName VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    default_currency VARCHAR(100) NOT NULL,
+    watchlistArray VARCHAR(100) NOT NULL,
+    exchangeSecret INTEGER NOT NULL,
     PRIMARY KEY (id)
 )
+
+CREATE TABLE currencies (
+    id INTEGER AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    ticker VARCHAR(100) NOT NULL,
+    historicalDataid INTEGER NOT NULL,
+    PRIMARY KEY (id) 
+)
+
+CREATE TABLE historicalData (
+    id INTEGER AUTO_INCREMENT,
+    time VARCHAR(100) NOT NULL,
+    price VARCHAR(100) NOT NULL,
+    buys INTEGER NOT NULL,
+    sells INTEGER NOT NULL,
+    volume INTEGER NOT NULL,
+    PRIMARY KEY (id) 
+)
+
+
 
