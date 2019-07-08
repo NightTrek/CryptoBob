@@ -1,8 +1,8 @@
-USE wishes_db;
+USE cryptobob_db;
 
-INSERT INTO wishes(wish)
-VALUES('New Laptop'),
-("property"),
-("VR Headset");
+-- INSERT INTO wishes(wish)
+-- VALUES('New Laptop'),
+-- ("property"),
+-- ("VR Headset");
 
-SELECT * FROM wishes;
+-- SELECT * FROM wishes;
