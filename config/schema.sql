@@ -20,7 +20,9 @@ CREATE TABLE currencies (
     currencyLong VARCHAR(100) NOT NULL,
     tradingpair VARCHAR(100) NOT NULL,
     txfee INTEGER NOT NULL,
-    basepair BOOLEAN NOT NULL,
+    BTC INTEGER NOT NULL,
+    ETH INTEGER NOT NULL,
+    USD INTEGER NOT NULL,
     PRIMARY KEY (id) 
 );
 
