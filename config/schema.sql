@@ -1,3 +1,4 @@
+
 DROP DATABASE IF EXISTS cryptobob_db;
 
 CREATE DATABASE cryptobob_db;
@@ -11,6 +12,7 @@ CREATE TABLE users (
     default_currency VARCHAR(100) NOT NULL,
     watchlistArray VARCHAR(100) NOT NULL,
     exchangeSecret VARCHAR(100) NOT NULL,
+
     PRIMARY KEY (id)
 );
 
