@@ -16,15 +16,18 @@ CREATE TABLE users (
 
 CREATE TABLE currencies (
     id INTEGER AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL,
-    ticker VARCHAR(100) NOT NULL,
-    historicalDataid INTEGER NOT NULL,
+    currency VARCHAR(100) NOT NULL,
+    currencyLong VARCHAR(100) NOT NULL,
+    tradingpair VARCHAR(100) NOT NULL,
+    txfee INTEGER NOT NULL,
+    basepair BOOLEAN NOT NULL,
     PRIMARY KEY (id) 
 );
 
 CREATE TABLE historicalData (
     id INTEGER AUTO_INCREMENT,
     time VARCHAR(100) NOT NULL,
+    tradingpair VARCHAR(100) NOT NULL,
     average INTEGER NOT NULL,
     high INTEGER NOT NULL,
     low INTEGER NOT NULL,
