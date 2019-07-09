@@ -128,7 +128,7 @@ module.exports = {
                             low: InsertObject.ValueC,
                             Volume:InsertObject.ValueD,
                             last:InsertObject.ValueE,
-                            unixTimestamp:InsertObject.ValueF,
+                            unixgitTimestamp:InsertObject.ValueF,
                             bid:InsertObject.ValueG,
                             ask:InsertObject.ValueH,
                             openBuys:InsertObject.ValueI,
