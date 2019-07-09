@@ -17,14 +17,14 @@ const tests = async function() {
     //     console.log(err)
     //     console.log("gettickererror")
     // }
-    try {
-        let marketsRes = await bt.getAllMarketSummeries();
-        console.log(marketsRes);
-    } catch (err) {
-        n
-        console.log(err)
-        console.log("getMarketSummeries error")
-    }
+    // try {
+    //     let marketsRes = await bt.getAllMarketSummeries();
+    //     console.log(marketsRes);
+    // } catch (err) {
+    //     n
+    //     console.log(err)
+    //     console.log("getMarketSummeries error")
+    // }
     // try{
     //     let specificMarket = await bt.getMarketSummery("USD","ETH")
     //     console.log("specificMarket success")
@@ -47,6 +47,7 @@ const tests = async function() {
         console.log(curList);
     } catch (err) {
         throw err;
+        n
     }
 
 

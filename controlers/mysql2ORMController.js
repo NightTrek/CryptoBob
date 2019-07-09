@@ -93,12 +93,41 @@ module.exports = {
     },
 
     insertOne: async function(con, tableOneCol, InsertObject) {
+        let queryString =
+            `INSERT INTO ?? (??, ??, ??) VALUES('??', '??', '??');`;
+        try {
+            console.log(InsertObject)
+            let response = await con.query(
+                queryString, [tableOneCol, InsertObject.fieldA, InsertObject.fieldB, InsertObject.fieldC,
+                    InsertObject.valueA, InsertObject.valueB, InsertObject.valueC
+                ]);
+            return new Promise((resolve, reject) => {
+                if (response) {
+                    resolve(response[0]);
+                } else {
+                    reject({ err: "SQL server Response Error code:500 in method findWhoHasMost()" });
+                }
+            });
+
+        } catch (err) {
+            console.log("error inserting data to table");
+            throw err;
+        }
+    },
+    insertEleven: async function(con, tableOneCol, InsertObject) {
             let queryString =
-                "INSERT INTO ?? (??, ??) VALUES(??, ??);";
+                `INSERT INTO ?? (?? , ?? , ?? , ?? , ?? , ?? , ?? , ?? , ?? , ?? , ??) VALUES( ?? , ??, ??, ??, ??, ??, ??, ??, ??, ??, ??);`;
             try {
+                console.log(InsertObject);
                 let response = await con.query(
-                    queryString, [tableOneCol, InsertObject.fieldA, InsertObject.fieldB, InsertObject.fieldC,
-                        InsertObject.valueA, InsertObject.valueB, InsertObject.valueC
+                    queryString, [tableOneCol,
+                        // 11 fields 
+                        InsertObject.fieldA, InsertObject.fieldB, InsertObject.fieldC, InsertObject.fieldD, InsertObject.fieldE, InsertObject.fieldF,
+                        InsertObject.fieldG, InsertObject.fieldH, InsertObject.fieldI, InsertObject.fieldJ, InsertObject.fieldK,
+                        // 'foreignId', 'high', 'low', 'Volume', 'last', 'unixTimestamp', 'bid', 'ask', 'openBuys', 'openSells', 'prevDay'
+                        // 11 values
+                        InsertObject.valueA, InsertObject.valueB, InsertObject.valueC, InsertObject.valueD, InsertObject.valueE, InsertObject.valueF,
+                        InsertObject.valueG, InsertObject.valueH, InsertObject.valueI, InsertObject.valueJ, InsertObject.valueK
                     ]);
                 return new Promise((resolve, reject) => {
                     if (response) {
@@ -109,6 +138,7 @@ module.exports = {
                 });
 
             } catch (err) {
+                console.log("error inserting data to table");
                 throw err;
             }
         }
