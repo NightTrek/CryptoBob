@@ -1,8 +1,9 @@
 const mysql = require('mysql2/promise');
 
-
+// all of the methods available 
 module.exports = {
-    GetConnection: async function (db, pass="password") {
+    // to get connection, database, password to sql
+    GetConnection: async function(db, pass = "password") {
         try {
             return await mysql.createConnection({
                 host: "localhost",
@@ -14,42 +15,42 @@ module.exports = {
                 user: "root",
 
                 // Your password
-                password: pass,
+                password: password,
                 database: db
             });
-        }
-        catch (err) {
+        } catch (err) {
             throw err;
         }
 
     },
 
-    selectAllFromTable: async function(con, table){
+    // to select all data from a specific table
+    selectAllFromTable: async function(con, table) {
         let queryString = "SELECT * FROM ?"
-        try{
+        try {
+            // 
             let response = await con.query(queryString, table);
             return new Promise((resolve, reject) => {
-                if(response){
+                if (response) {
                     resolve(response[0]);
-                }
-                else{
-                    reject({err:"MYSQL SERVER ERROR Code:500 in SelectAllFromTable()"})
+                } else {
+                    reject({ err: "MYSQL SERVER ERROR Code:500 in SelectAllFromTable()" })
                 }
             })
-        }catch(err){
+        } catch (err) {
             throw err;
         }
     },
 
-    selectWhere: async function (con, tableInput, colToSearch, valOfCol) {
+    // may have to change this depending how the trading pairs look after pulled out of sql
+    selectWhere: async function(con, tableInput, colToSearch, valOfCol) {
         let queryString = "SELECT * FROM ?? WHERE ?? = ?";
         try {
             let response = await con.query(queryString, [tableInput, colToSearch, valOfCol]);
             return new Promise((resolve, reject) => {
                 if (response) {
                     resolve(response[0]);
-                }
-                else {
+                } else {
                     reject({ err: "SQL Sever error code:500 in method selectWhere()" })
                 }
             });
@@ -58,7 +59,8 @@ module.exports = {
         }
     },
 
-    selectAndOrder: function (con, whatToSelect, table, orderCol) {
+    // orders by descending like selecting the tickers by price or volume
+    selectAndOrder: function(con, whatToSelect, table, orderCol) {
         let queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
         console.log(queryString);
         try {
@@ -66,8 +68,7 @@ module.exports = {
             return new Promise((resolve, reject) => {
                 if (response) {
                     resolve(response[0]);
-                }
-                else {
+                } else {
                     reject({ err: "SQL server response error code:500 in method SelectAndOrder()" })
                 }
             });
@@ -76,24 +77,23 @@ module.exports = {
         }
     },
 
-    findWhoHasMost: function (con, tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
-        let queryString =
-            "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC LIMIT 1";
-        try {
-            let response = await con.query(
-                queryString,
-                [tableOneCol, tableOneCol, tableOne, tableTwo, tableTwo, tableTwoForeignKey, tableOne, tableOneCol]);
-            return new Promise((resolve,reject) => {
-                if(response){
-                    resolve(response[0]);
-                }else{
-                    reject({err:"SQL server Response Error code:500 in method findWhoHasMost()"});
-                }
-            });
+    findWhoHasMost: function(con, tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
+            let queryString =
+                "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC LIMIT 1";
+            try {
+                let response = await con.query(
+                    queryString, [tableOneCol, tableOneCol, tableOne, tableTwo, tableTwo, tableTwoForeignKey, tableOne, tableOneCol]);
+                return new Promise((resolve, reject) => {
+                    if (response) {
+                        resolve(response[0]);
+                    } else {
+                        reject({ err: "SQL server Response Error code:500 in method findWhoHasMost()" });
+                    }
+                });
 
-        } catch (err) {
-            throw err;
+            } catch (err) {
+                throw err;
+            }
         }
-    }
-    //end of methods
+        //end of methods
 }

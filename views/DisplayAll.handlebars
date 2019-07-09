@@ -102,7 +102,7 @@
             </div>
           </div>
         </div>
-        <button class="btn btn-primary" type="submit">Submit form</button>
+        <button id="submitform" class="btn btn-primary" type="submit">Submit form</button>
       </form>
 
 
@@ -124,7 +124,7 @@
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
       </form>
 
     </div>
@@ -144,7 +144,7 @@
 </div>
 
 <script>
-
+    $(".dropdown-trigger").dropdown();
 
   document.getElementById("toggleBtn").addEventListener("click", function () {
     var x = document.getElementById("loginForm");
@@ -165,5 +165,6 @@
   });
 
 
+  
 
 </script>

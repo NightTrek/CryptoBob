@@ -18,9 +18,17 @@
   },
   "homepage": "https://github.com/ToneDef00/CryptoArcade#readme",
   "dependencies": {
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
+<<<<<<< HEAD
     "mysql2": "^1.6.5"
   },
   "keywords": []
+=======
+    "mysql2": "^1.6.5",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
+>>>>>>> fadc89e7a4cca36119bd00fa31f9938df46c81ac
 }
