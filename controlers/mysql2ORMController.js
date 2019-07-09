@@ -93,42 +93,16 @@ module.exports = {
     },
 
     insertOne: async function(con, tableOneCol, InsertObject) {
-        let queryString =
-            `INSERT INTO ?? (??, ??, ??) VALUES('??', '??', '??');`;
-        try {
-            console.log(InsertObject)
-            let response = await con.query(
-                queryString, [tableOneCol, InsertObject.fieldA, InsertObject.fieldB, InsertObject.fieldC,
-                    InsertObject.valueA, InsertObject.valueB, InsertObject.valueC
-                ]);
-            return new Promise((resolve, reject) => {
-                if (response) {
-                    resolve(response[0]);
-                } else {
-                    reject({ err: "SQL server Response Error code:500 in method findWhoHasMost()" });
-                }
-            });
-
-        } catch (err) {
-            console.log("error inserting data to table");
-            throw err;
-        }
-    },
-    insertEleven: async function(con, tableOneCol, InsertObject) {
             let queryString =
-                `INSERT INTO ?? (?? , ?? , ?? , ?? , ?? , ?? , ?? , ?? , ?? , ?? , ??) VALUES( ?? , ??, ??, ??, ??, ??, ??, ??, ??, ??, ??);`;
+                `INSERT INTO currencies SET ?;`;
             try {
-                console.log(InsertObject);
+                console.log(InsertObject)
                 let response = await con.query(
-                    queryString, [tableOneCol,
-                        // 11 fields 
-                        InsertObject.fieldA, InsertObject.fieldB, InsertObject.fieldC, InsertObject.fieldD, InsertObject.fieldE, InsertObject.fieldF,
-                        InsertObject.fieldG, InsertObject.fieldH, InsertObject.fieldI, InsertObject.fieldJ, InsertObject.fieldK,
-                        // 'foreignId', 'high', 'low', 'Volume', 'last', 'unixTimestamp', 'bid', 'ask', 'openBuys', 'openSells', 'prevDay'
-                        // 11 values
-                        InsertObject.valueA, InsertObject.valueB, InsertObject.valueC, InsertObject.valueD, InsertObject.valueE, InsertObject.valueF,
-                        InsertObject.valueG, InsertObject.valueH, InsertObject.valueI, InsertObject.valueJ, InsertObject.valueK
-                    ]);
+                    queryString, {
+                        currency: InsertObject.ValueA,
+                        currencyLong: InsertObject.ValueB,
+                        txfee: InsertObject.ValueC
+                    });
                 return new Promise((resolve, reject) => {
                     if (response) {
                         resolve(response[0]);
@@ -141,6 +115,41 @@ module.exports = {
                 console.log("error inserting data to table");
                 throw err;
             }
+        },
+        insertEleven: async function(con, tableOneCol, InsertObject) {
+                let queryString =
+                `INSERT INTO eth SET ?;`;
+                try {
+                    console.log(InsertObject)
+                    let response = await con.query(
+                        queryString, [{
+                            foreignId: InsertObject.ValueA,
+                            high: InsertObject.ValueB,
+                            low: InsertObject.ValueC,
+                            Volume:InsertObject.ValueD,
+                            last:InsertObject.ValueE,
+                            unixTimestamp:InsertObject.ValueF,
+                            bid:InsertObject.ValueG,
+                            ask:InsertObject.ValueH,
+                            openBuys:InsertObject.ValueI,
+                            openSells:InsertObject.ValueJ,
+                            prevDay:InsertObject.ValueK
+
+                        }]);
+                    return new Promise((resolve, reject) => {
+                        if (response) {
+                            resolve(response[0]);
+                        } else {
+                            reject({ err: "SQL server Response Error code:500 in method findWhoHasMost()" });
+                        }
+                    });
+    
+                } catch (err) {
+                    console.log("error inserting data to table");
+                    throw err;
+                }
         }
-        //end of methods
+    //end of methods
 }
+// 'foreignId', 'high', 'low', 'Volume', 'last', 'unixTimestamp', 'bid', 'ask', 'openBuys', 'openSells', 'prevDay'
+                            // 11 values

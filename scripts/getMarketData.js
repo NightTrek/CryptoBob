@@ -305,7 +305,7 @@ module.exports = {
                         fieldA: 'currency',
                         fieldB: 'currencyLong',
                         fieldC: 'txfee',
-                        valueA: currencyData[i].currency,
+                        ValueA: currencyData[i].currency,
                         ValueB: currencyData[i].currencyLong,
                         ValueC: JSON.stringify(currencyData[i].TxFee)
                     }
@@ -385,18 +385,18 @@ module.exports = {
                         fieldI: 'openBuys',
                         fieldJ: 'openSells',
                         fieldK: 'prevDay',
-                        valueA: eth[i].key,
-                        valueB: eth[i].ms.High,
-                        valueC: eth[i].ms.Low,
-                        valueD: eth[i].ms.Volume,
-                        valueE: eth[i].ms.Last,
+                        ValueA: eth[i].key,
+                        ValueB: eth[i].ms.High,
+                        ValueC: eth[i].ms.Low,
+                        ValueD: eth[i].ms.Volume,
+                        ValueE: eth[i].ms.Last,
                         // convert timestamp using moment to unix
-                        valueF: moment(eth[i].ms.timeStamp).unix(),
-                        valueG: eth[i].ms.Bid,
-                        valueH: eth[i].ms.Ask,
-                        valueI: eth[i].ms.OpenBuyOrders,
-                        valueJ: eth[i].ms.OpenSellOrders,
-                        valueK: eth[i].ms.PrevDay
+                        ValueF: moment(eth[i].ms.timeStamp).unix(),
+                        ValueG: eth[i].ms.Bid,
+                        ValueH: eth[i].ms.Ask,
+                        ValueI: eth[i].ms.OpenBuyOrders,
+                        ValueJ: eth[i].ms.OpenSellOrders,
+                        ValueK: eth[i].ms.PrevDay
                     }
                     // console.log(ethpoint);
                 let ethResponse = await sql.insertEleven(connection, "eth", ethpoint)
