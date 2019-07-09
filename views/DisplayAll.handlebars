@@ -11,7 +11,8 @@
       <a href="#!" class="brand-logo">Crypto</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="?">Market Data</a></li>
-        <li><a href="?">Portfolio Snapshot</a></li>
+        <li><a href="/portfolio">Portfolio Snapshot</a></li>
+        <li><a href="https://www.cryptocompare.com/">Portfolio Snapshot</a></li>
         <!-- Dropdown Trigger -->
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i
               class="material-icons right">arrow_drop_down</i></a></li>
@@ -27,6 +28,7 @@
     <h2>Get your luck and earn even more $$$. </h2>
     <h2>Sign up today!!! Hurry Up $$$</h2>
     <br>
+    <label id = 'index'>Index: </label>
 
     {{!-- <div>
         <a href="/survey"><button class="btn btn-lg btn-primary"><h4><span class="fa fa-list-alt"></span> Sign In Here.</h4></button></a>
@@ -145,6 +147,13 @@
 
 <script>
     $(".dropdown-trigger").dropdown();
+      var queryURL = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,JPY,EUR&api_key=a144bd9aeb98b5bce3922752dc598a2630e87e092637f6f32babf7c8fc0e1bba';
+    $.ajax({url: queryURL, method: 'GET'}).then(function(res){
+      console.log('here are the responses', res);
+      var resIndex =  res.USD
+      $('#index').text("USD: " + resIndex);
+
+    })
 
   document.getElementById("toggleBtn").addEventListener("click", function () {
     var x = document.getElementById("loginForm");
