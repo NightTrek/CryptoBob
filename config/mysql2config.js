@@ -15,7 +15,7 @@ module.exports = {
                 user: "root",
 
                 // Your password
-                password: pass,
+                password: password,
                 database: db
             });
         } catch (err) {
