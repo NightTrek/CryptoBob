@@ -1,9 +1,9 @@
 const mysql = require('mysql2/promise');
 
-// all of the methods available 
+
 module.exports = {
-    // to get connection, database, password to sql
-    GetConnection: async function(db, pass = "password") {
+    db: "cryptobob_db",
+    GetConnection: async function(db = this.db, pass = "password") {
         try {
             return await mysql.createConnection({
                 host: "localhost",
@@ -24,11 +24,9 @@ module.exports = {
 
     },
 
-    // to select all data from a specific table
     selectAllFromTable: async function(con, table) {
         let queryString = "SELECT * FROM ?"
         try {
-            // 
             let response = await con.query(queryString, table);
             return new Promise((resolve, reject) => {
                 if (response) {
@@ -42,7 +40,6 @@ module.exports = {
         }
     },
 
-    // may have to change this depending how the trading pairs look after pulled out of sql
     selectWhere: async function(con, tableInput, colToSearch, valOfCol) {
         let queryString = "SELECT * FROM ?? WHERE ?? = ?";
         try {
@@ -59,8 +56,7 @@ module.exports = {
         }
     },
 
-    // orders by descending like selecting the tickers by price or volume
-    selectAndOrder: function(con, whatToSelect, table, orderCol) {
+    selectAndOrder: async function(con, whatToSelect, table, orderCol) {
         let queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
         console.log(queryString);
         try {
@@ -77,12 +73,33 @@ module.exports = {
         }
     },
 
-    findWhoHasMost: function(con, tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
+    findWhoHasMost: async function(con, tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
+        let queryString =
+            "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC LIMIT 1";
+        try {
+            let response = await con.query(
+                queryString, [tableOneCol, tableOneCol, tableOne, tableTwo, tableTwo, tableTwoForeignKey, tableOne, tableOneCol]);
+            return new Promise((resolve, reject) => {
+                if (response) {
+                    resolve(response[0]);
+                } else {
+                    reject({ err: "SQL server Response Error code:500 in method findWhoHasMost()" });
+                }
+            });
+
+        } catch (err) {
+            throw err;
+        }
+    },
+
+    insertOne: async function(con, tableOneCol, InsertObject) {
             let queryString =
-                "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC LIMIT 1";
+                "INSERT INTO ?? (??, ??) VALUES(??, ??);";
             try {
                 let response = await con.query(
-                    queryString, [tableOneCol, tableOneCol, tableOne, tableTwo, tableTwo, tableTwoForeignKey, tableOne, tableOneCol]);
+                    queryString, [tableOneCol, InsertObject.fieldA, InsertObject.fieldB, InsertObject.fieldC,
+                        InsertObject.valueA, InsertObject.valueB, InsertObject.valueC
+                    ]);
                 return new Promise((resolve, reject) => {
                     if (response) {
                         resolve(response[0]);
