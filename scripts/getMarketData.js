@@ -371,6 +371,7 @@ module.exports = {
                         break;
                 }
             }
+            let completion = 0;
             // loop through the arrays
             for (let i = 0; i < eth.length; i++) {
                 let ethpoint = {
@@ -402,8 +403,76 @@ module.exports = {
                 let ethResponse = await sql.insertEleven(connection, "eth", ethpoint)
                 console.log(ethResponse);
             }
+            completion++;
+            console.log('completed eth ----------------------------------------------------')
+            for (let i = 0; i < btc.length; i++) {
+                let btcpoint = {
+                        fieldA: 'foreignId',
+                        fieldB: 'high',
+                        fieldC: 'low',
+                        fieldD: 'Volume',
+                        fieldE: 'last',
+                        fieldF: 'unixTimestamp',
+                        fieldG: 'bid',
+                        fieldH: 'ask',
+                        fieldI: 'openBuys',
+                        fieldJ: 'openSells',
+                        fieldK: 'prevDay',
+                        ValueA: btc[i].key,
+                        ValueB: btc[i].ms.High,
+                        ValueC: btc[i].ms.Low,
+                        ValueD: btc[i].ms.Volume,
+                        ValueE: btc[i].ms.Last,
+                        // convert timestamp using moment to unix
+                        ValueF: moment(btc[i].ms.timeStamp).unix(),
+                        ValueG: btc[i].ms.Bid,
+                        ValueH: btc[i].ms.Ask,
+                        ValueI: btc[i].ms.OpenBuyOrders,
+                        ValueJ: btc[i].ms.OpenSellOrders,
+                        ValueK: btc[i].ms.PrevDay
+                    }
+                    // console.log(ethpoint);
+                let btcResponse = await sql.insertEleven(connection, "btc", btcpoint)
+                console.log(btcResponse);
+            }
+            completion++;
+            console.log('completed BTC ----------------------------------------------------')
+            
+
+            for (let i = 0; i < usd.length; i++) {
+                let usdpoint = {
+                        fieldA: 'foreignId',
+                        fieldB: 'high',
+                        fieldC: 'low',
+                        fieldD: 'Volume',
+                        fieldE: 'last',
+                        fieldF: 'unixTimestamp',
+                        fieldG: 'bid',
+                        fieldH: 'ask',
+                        fieldI: 'openBuys',
+                        fieldJ: 'openSells',
+                        fieldK: 'prevDay',
+                        ValueA: usd[i].key,
+                        ValueB: usd[i].ms.High,
+                        ValueC: usd[i].ms.Low,
+                        ValueD: usd[i].ms.Volume,
+                        ValueE: usd[i].ms.Last,
+                        // convert timestamp using moment to unix
+                        ValueF: moment(usd[i].ms.timeStamp).unix(),
+                        ValueG: usd[i].ms.Bid,
+                        ValueH: usd[i].ms.Ask,
+                        ValueI: usd[i].ms.OpenBuyOrders,
+                        ValueJ: usd[i].ms.OpenSellOrders,
+                        ValueK: usd[i].ms.PrevDay
+                    }
+                    // console.log(usdpoint);
+                let usdResponse = await sql.insertEleven(connection, "usd", usdpoint)
+                console.log(usdResponse);
+            }
+            completion++
+            console.log('completed USD ----------------------------------------------------')
             return new Promise((resolve, reject) => {
-                if (ethResponse) {
+                if (completion === 3) {
                     resolve("yay");
                 } else {
                     reject({ err: "something went wrong" });
