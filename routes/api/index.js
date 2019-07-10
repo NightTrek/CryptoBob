@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const sql = require('../../controlers/mysql2ORMController')
 
 
 router.get("/", function (req, res) {
@@ -12,6 +13,20 @@ router.get("/", function (req, res) {
     // });
     res.send("/api/")
 });
+//api which gets news from sql 
+router.get("/generalnews", async function (req, res) {
+    try{
+    let connection = await sql.GetConnection();
 
+    let data = await sql.selectWhere(connection,'cryptoNews', 'category', 'Exchanges')
+
+    res.send("general", { news: data });
+    }
+    catch(err){
+        console.log(err)
+            return res.status(500).end();
+    }
+    
+});
 
 module.exports = router;
