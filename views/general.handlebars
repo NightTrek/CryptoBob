@@ -1,0 +1,14 @@
+<h1>general news</h1>
+
+<ul class="news">
+    {{#each news}}
+    <li>
+        <div>
+            <h6>{{this.title}}</h6>
+            <p>{{this.description}}</p>
+            <p>{{this.category}}</p>
+            <p>{{this.url}}</p>
+        </div>
+    </li>
+    {{/each}}
+</ul>
