@@ -1,18 +1,5 @@
 USE crypto_db;
 
-CREATE TABLE cryptoNews (
-  id INT NOT NULL AUTO_INCREMENT,
-  generalNews VARCHAR(45) NULL,
-  blockchain VARCHAR(45) NULL,
-  mining VARCHAR(45) NULL,
-  ico VARCHAR(45) NULL,
-  government VARCHAR(45) NULL,
-  analysis VARCHAR(45) NULL,
-  exchanges VARCHAR(45) NULL,
-  currencyType VARCHAR(45) NULL,
- 
-  PRIMARY KEY (id)
-);
 
 DROP TABLE cryptoNews;
 CREATE TABLE cryptoNews (
