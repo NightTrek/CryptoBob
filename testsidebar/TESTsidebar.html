@@ -43,14 +43,19 @@
             <li><a class="subheader" href="#!"><i class="material-icons">autorenew</i>Auto Trading (Unavailable)</a></li>
         </ul>
         <div class="hoverable">
-            <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i>SIDE BAR MENU</a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
         </div>
 
     </nav>
     <script>
+        $(document).ready(function() {
+            $('.sidenav').sidenav();
+
+            $(".sidenav-trigger show-on-large").trigger('click');
+        });
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems, options);
+            // var instances = M.Sidenav.init(elems, options);
         });
 
         // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
@@ -58,10 +63,6 @@
         // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
 
         // Or with jQuery
-
-        $(document).ready(function() {
-            $('.sidenav').sidenav();
-        });
     </script>
 </body>
 
