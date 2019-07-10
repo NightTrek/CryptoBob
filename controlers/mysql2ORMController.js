@@ -5,18 +5,16 @@ module.exports = {
     db: "cryptobob_db",
     GetConnection: async function(db = this.db, pass = "password") {
         try {
-            return await mysql.createConnection({
+            return await mysql.createPool({
                 host: "localhost",
-
                 // Your port; if not 3306
                 port: 3306,
-
-                // Your username
                 user: "root",
-
-                // Your password
                 password: pass,
-                database: db
+                database: db,
+                waitForConnections: true,
+                connectionLimit: 10,
+                queueLimit: 0
             });
         } catch (err) {
             throw err;
