@@ -118,7 +118,7 @@ module.exports = {
         },
         insertEleven: async function(con, tableOneCol, InsertObject) {
                 let queryString =
-                `INSERT INTO eth SET ?;`;
+                `INSERT INTO ${tableOneCol} SET ?;`;
                 try {
                     console.log(InsertObject)
                     let response = await con.query(
@@ -128,7 +128,7 @@ module.exports = {
                             low: InsertObject.ValueC,
                             Volume:InsertObject.ValueD,
                             last:InsertObject.ValueE,
-                            unixgitTimestamp:InsertObject.ValueF,
+                            unixTimestamp:InsertObject.ValueF,
                             bid:InsertObject.ValueG,
                             ask:InsertObject.ValueH,
                             openBuys:InsertObject.ValueI,
