@@ -3,9 +3,6 @@ require("dotenv").config();
 
 //js
 
-console.log(process.env.SPOTIFY_ID) 
-
-console.log(process.env.SPOTIFY_SECRET)
 
 console.log('this is loaded');
 
