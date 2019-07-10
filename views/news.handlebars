@@ -1,0 +1,146 @@
+<h1>crypto news page</h1>
+
+{{!-- this div is for the cryptocurrency graphs --}}
+<div class="div">
+    {{!-- top div --}}
+    <div class="row">
+        <div class="col s12">This div is a full row</div>
+    </div>
+    {{!-- row of 3 graphs --}}
+    <div class="row">
+        {{!-- card #1 --}}
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="images/office.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Graph #1<i
+                            class="material-icons right">more_vert</i></span>
+                    <p><a href="#">This is a link to somwhere cool</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">more infor for graph #1<i
+                            class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+        {{!-- card #2 --}}
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="images/office.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Graph #2<i
+                            class="material-icons right">more_vert</i></span>
+                    <p><a href="#">This is a link to somewhere else cool</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">MORE INFO GRAPH 2<i
+                            class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+        {{!-- card #3 --}}
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="images/office.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Graph #3<i
+                            class="material-icons right">more_vert</i></span>
+                    <p><a href="#">This is a link to another cool place</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">MORE INFO GRAPH 3<i
+                            class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- BOTTOM DIV --}}
+    <div class="row">
+        <div class="col s12">This div is a full row</div>
+    </div>
+</div>
+
+<h2>current crypto news</h2>
+{{!-- this div is for the news api --}}
+<div>
+    {{!-- div to dump articles --}}
+    <div class="container">
+
+    </div>
+    {{!-- crpyto news search params div --}}
+    <div class="row">
+        <div class="col s12">This div is a full row</div>
+    </div>
+    <div class="container">
+
+        {{!-- cryptonews Search Buttons --}}
+        <button class="Blockchain">Blockchain</button>
+        <button class="Mining">Mining</button>
+        <button class="ICO">ICO (initial coin offering)</button>
+        <button class="Government">Government</button>
+        <button class="Analysis">Analysis</button>
+        <button class="Exchanges">Exchanges</button>
+        <button class="AllNews">All News</button>
+
+        {{!-- cryptonews Articles dump --}}
+    </div>
+    <div class="container">
+        <div class="row">
+            {{#each news}}
+            <div class="col-sm-4 News {{this.category}}">
+                <a href={{this.url}}>
+                    <h3>{{this.title}}</h3>
+                </a>
+                <p>{{this.description}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+{{!-- cryptonews search button functions --}}
+<script>
+    $('.Blockchain').on('click', function () {
+        $('.News').hide()
+        $('.Blockchain').show()
+    });
+
+    $('.Mining').on('click', function () {
+        $('.News').hide()
+        $('.Mining').show()
+    });
+
+    $('.ICO').on('click', function () {
+        $('.News').hide()
+        $('.ICO').show()
+    });
+
+    $('.Government').on('click', function () {
+        $('.News').hide()
+        $('.Government').show()
+    });
+
+    $('.Analysis').on('click', function () {
+        $('.News').hide()
+        $('.Analysis').show()
+    });
+
+    $('.Exchanges').on('click', function () {
+        $('.News').hide()
+        $('.Exchanges').show()
+    });
+
+    $('.AllNews').on('click', function () {
+        $('.News').hide()
+
+    });
+</script>

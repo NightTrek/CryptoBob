@@ -4,6 +4,7 @@ const router = express.Router();
 
 
 
+
 // display home page navebar page
 router.get("/", function (req, res) {
     res.render("DisplayAll")
@@ -18,6 +19,7 @@ router.get("/watchlist", function (req, res) {
 router.get("/notifications", function (req, res) {
     res.render("notifications")
 });
+
 
 
 //add notification page 
