@@ -81,14 +81,15 @@
         <div class="col s12">This div is a full row</div>
     </div>
     <div class="container">
-        
+
         {{!-- cryptonews Search Buttons --}}
         <button class="Blockchain">Blockchain</button>
-        <button class="mining">Mining</button>
-        <button class="ico">ICO (initial coin offering)</button>
-        <button class="government">Government</button>
-        <button class="analysis">Analysis</button>
-        <button class="exchanges">Exchanges</button>
+        <button class="Mining">Mining</button>
+        <button class="ICO">ICO (initial coin offering)</button>
+        <button class="Government">Government</button>
+        <button class="Analysis">Analysis</button>
+        <button class="Exchanges">Exchanges</button>
+        <button class="AllNews">All News</button>
 
         {{!-- cryptonews Articles dump --}}
     </div>
@@ -113,28 +114,33 @@
         $('.Blockchain').show()
     });
 
-    $('.mining').on('click', function () {
+    $('.Mining').on('click', function () {
         $('.News').hide()
-        $('.mining').show()
+        $('.Mining').show()
     });
 
-    $('.ico').on('click', function () {
+    $('.ICO').on('click', function () {
         $('.News').hide()
-        $('.ico').show()
+        $('.ICO').show()
     });
 
-    $('.government').on('click', function () {
+    $('.Government').on('click', function () {
         $('.News').hide()
-        $('.government').show()
+        $('.Government').show()
     });
 
-    $('.analysis').on('click', function () {
+    $('.Analysis').on('click', function () {
         $('.News').hide()
-        $('.analysis').show()
+        $('.Analysis').show()
     });
 
-    $('.exchanges').on('click', function () {
+    $('.Exchanges').on('click', function () {
         $('.News').hide()
-        $('.exchanges').show()
+        $('.Exchanges').show()
+    });
+
+    $('.AllNews').on('click', function () {
+        $('.News').hide()
+
     });
 </script>
