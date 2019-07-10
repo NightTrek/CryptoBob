@@ -471,6 +471,7 @@ module.exports = {
             }
             completion++
             console.log('completed USD ----------------------------------------------------')
+            connection.end()
             return new Promise((resolve, reject) => {
                 if (completion === 3) {
                     resolve("yay");
