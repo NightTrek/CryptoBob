@@ -9,11 +9,20 @@ CREATE TABLE users (
     id INTEGER AUTO_INCREMENT,
     userName VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(1000) NOT NULL,
     default_currency VARCHAR(100) NOT NULL,
-    watchlistArray VARCHAR(100) NOT NULL,
+    watchlistArray VARCHAR(500) NOT NULL,
+    notificationsArray VARCHAR(500) NOT NULL,
     exchangeSecret VARCHAR(100) NOT NULL,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE notifications (
+    id INTEGER AUTO_INCREMENT,
+    data VARCHAR(1000) NOT NULL,
+    PRIMARY KEY (id)
+)
 
 CREATE TABLE currencies (
     id INTEGER AUTO_INCREMENT,

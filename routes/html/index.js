@@ -10,7 +10,7 @@ router.get("/", function (req, res) {
     res.render("DisplayAll")
 });
 
-//display the watchlist page
+//display the watchlist page broken
 router.get("/watchlist:id", function (req, res) {
     let connection = await sql.GetConnection();
     let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.body.id);
@@ -22,7 +22,12 @@ router.get("/watchlist:id", function (req, res) {
 });
 
 //display all current notifications 
-router.get("/notifications", function (req, res) {
+router.get("/notifications:id", function (req, res) {
+    let connection = await sql.GetConnection();
+    let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.body.id);
+    console.log(watchlistArray[0].watchlistArray);
+    connection.end();
+    
     res.render("notifications")
 });
 
