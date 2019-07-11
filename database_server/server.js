@@ -1,12 +1,12 @@
 const express = require('express');
-
+const md = require("../scripts/getMarketData");
 
 // Sets up the Express App
 // =============================================================
 var app = express();
 
 // so it will work in heroku
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 
 var exphbs = require("express-handlebars");
 
@@ -23,9 +23,20 @@ app.use(routes);
 
 //server starting section
 //-==============================================================
-app.listen(PORT, function () {
+app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
 });
-//
+
+let test = setInterval(async function(){
+    try{
+    let res = await md.storeLiveCurrencyData();
+    }
+    catch(err){
+        console.log("Test Function failed ")
+        throw err;
+    }
+}, 30000);
+
+
 
 
