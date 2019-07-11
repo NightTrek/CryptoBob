@@ -6,7 +6,7 @@ const md = require("../../scripts/getMarketData");
 
 
 
-//send market data for a specific coin for a specific market
+//send market data for a specific coin for a specific market most recent transaction in decs order
 router.post("/api/marketDataforToken", async function (req, res) {
     console.log("POST REQ");
     // console.log(req.body.data.ticker)
