@@ -11,8 +11,14 @@ router.get("/", function (req, res) {
 });
 
 //display the watchlist page
-router.get("/watchlist", function (req, res) {
-    res.render("watchlist")
+router.get("/watchlist:id", function (req, res) {
+    let connection = await sql.GetConnection();
+    let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.body.id);
+    console.log(watchlistArray[0].watchlistArray);
+    connection.end();
+    //lookup in mysql for the user req.body.id and return there watchlist
+
+    res.send("watchlist", { news: data });
 });
 
 //display all current notifications 

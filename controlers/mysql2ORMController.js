@@ -53,7 +53,21 @@ module.exports = {
             throw err;
         }
     },
-
+    selectSomethingWhere: async function(con, selector, tableInput, colToSearch, valOfCol) {
+        let queryString = "SELECT ? FROM ?? WHERE ?? = ?";
+        try {
+            let response = await con.query(queryString, [selector, tableInput, colToSearch, valOfCol]);
+            return new Promise((resolve, reject) => {
+                if (response) {
+                    resolve(response[0]);
+                } else {
+                    reject({ err: "SQL Sever error code:500 in method selectWhere()" })
+                }
+            });
+        } catch (err) {
+            throw err;
+        }
+    },
     selectAndOrder: async function(con, whatToSelect, table, orderCol) {
         let queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
         console.log(queryString);

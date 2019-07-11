@@ -31,14 +31,34 @@
 
 {{!-- ==================================================start of watchlist  --}}
 <section>
-     
+
     <div class="container" style="margin-top: 25px">
-       <div class="row">
-            <div class="col s8"> <h3>WatchList</h3></div>
+        <div class="row">
+            <div class="col s8">
+                <h3>WatchList</h3>
+            </div>
+            <div class="col s4"></div>
+        </div>
+        <div class="row">
+            <div class="col s8"></div>
             <div class="col s2"><button>Add crypto</button></div>
             <div class="col s2"><button>Edit watchlist</button></div>
         </div>
         <div class="divider"></div>
+        <div class="container">
+            {{#each watchlistItem}}
+            <div class="row">
+                <div class="col s2">
+                    <h3>{{this.currency}}</h3>
+                </div>
+                <div class="col s4"><h3>{{this.currencyLong}}</h3></div>
+                <div class="col s2"><h3>{{this.price}}</h3></div>
+                <div class="col s2"><h3>{{this.sixHourAvg}}</h3></div>
+                <div class="col s2"><h3>{{this.dayAvg}}</h3></div>
+            </div>
+
+            {{/each}}
+        </div>
 </section>
 
 </div>
@@ -57,4 +77,5 @@
     $(document).ready(function () {
         $('.sidenav').sidenav();
     });
+
 </script>
