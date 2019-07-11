@@ -1,17 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const sql = require('../../controlers/mysql2ORMController')
-const md = require("../scripts/getMarketData");
+const md = require("../../scripts/getMarketData");
 
 
 
 
-//send market data for a specific coin for a specific market
+//send market data for a specific coin for a specific market most recent transaction in decs order
 router.post("/api/marketDataforToken", async function (req, res) {
+    console.log("POST REQ");
+    // console.log(req.body.data.ticker)
     try{
-        if(md.key[req.body.ticker] !== undefined){
+        if(md.key[req.body.data.ticker] !== undefined){
     let connection = await sql.GetConnection()
-    let tokenData = await sql.selectWhere(connection,req.body.market,'foreignId', md.key[req.body.ticker]);
+    let tokenData = await sql.SelectAllAndOrderByTmestamp(connection, md.key[req.body.data.ticker], req.body.data.market );
     if(tokenData){
         connection.end();
         res.json(tokenData);
@@ -30,18 +32,18 @@ router.post("/api/marketDataforToken", async function (req, res) {
 
 //entery page for the app/ login page
 router.get("/api/", function (req, res) {
-    res.render("login")
+    res.json("testing ")
 });
 
-//entery page for the app/ login page
-router.get("/api/", function (req, res) {
-    res.render("login")
-});
+// //entery page for the app/ login page
+// router.get("/api/", function (req, res) {
+//     res.render("login")
+// });
 
-//entery page for the app/ login page
-router.get("/api/", function (req, res) {
-    res.render("login")
-});
+// //entery page for the app/ login page
+// router.get("/api/", function (req, res) {
+//     res.render("login")
+// });
 
 
 

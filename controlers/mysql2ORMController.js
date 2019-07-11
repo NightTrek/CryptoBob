@@ -68,11 +68,11 @@ module.exports = {
             throw err;
         }
     },
-    selectAndOrder: async function(con, whatToSelect, table, orderCol) {
-        let queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
+    SelectAllAndOrderByTmestamp: async function(con, ID, table) {
+        let queryString = `SELECT * FROM ?? WHERE foreignId =${ID} ORDER BY unixTimestamp DESC`;
         console.log(queryString);
         try {
-            let response = await con.query(queryString, [whatToSelect, table, orderCol]);
+            let response = await con.query(queryString, [table]);
             return new Promise((resolve, reject) => {
                 if (response) {
                     resolve(response[0]);
