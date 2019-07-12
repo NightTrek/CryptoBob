@@ -3,12 +3,24 @@ const sql = require('../../controlers/mysql2ORMController')
 const router = express.Router();
 
 
+
 // /account/
 
 // display home page navebar page
 router.get("/", function(req, res) {
     res.render("DisplayAll")
+//signup 
+router.post("/signup", function (req, res) {
+    let connection = await sql.GetConnection();
+    let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.body.id);
+    console.log(watchlistArray[0].watchlistArray);
+    connection.end();
+    //lookup in mysql for the user req.body.id and return there watchlist
+
+    res.send("watchlist", { news: data });
+
 });
+        
 
 
 //display the watchlist page broken
