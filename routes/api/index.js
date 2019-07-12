@@ -3,6 +3,7 @@ const router = express.Router();
 const sql = require('../../controlers/mysql2ORMController')
 
 
+
 //password/userame route
 router.post("/api/marketDataforToken", async function (req, res) {
     console.log("POST REQ");
@@ -31,6 +32,7 @@ router.post("/api/marketDataforToken", async function (req, res) {
 
 
 router.get("/", function (req, res) {
+
     // connection.query("SELECT * FROM mining;", function(err, data) {
     //   if (err) { 
     //     return res.status(500).end();
@@ -40,6 +42,14 @@ router.get("/", function (req, res) {
     // });
     res.send("/api/")
 });
+
+router.post("/login", function (req, res) {
+    let loginData = req.body;
+
+    res.send("/api/")
+});
+
+
 //api which gets news from sql 
 router.get("/generalnews", async function (req, res) {
     try{
