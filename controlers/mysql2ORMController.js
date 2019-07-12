@@ -128,6 +128,33 @@ module.exports = {
                 throw err;
             }
         },
+        
+        // new user shit
+        insertNewUsers: async function(con, tableOneCol, InsertObject) {
+            let queryString =
+                `INSERT INTO currencies SET ?;`;
+            try {
+                console.log(InsertObject)
+                let response = await con.query(
+                    queryString, {
+                        currency: InsertObject.ValueA,
+                        currencyLong: InsertObject.ValueB,
+                        txfee: InsertObject.ValueC
+                    });
+                return new Promise((resolve, reject) => {
+                    if (response) {
+                        resolve(response[0]);
+                    } else {
+                        reject({ err: "SQL server Response Error code:500 in method findWhoHasMost()" });
+                    }
+                });
+
+            } catch (err) {
+                console.log("error inserting data to table");
+                throw err;
+            }
+        },
+
         insertEleven: async function(con, tableOneCol, InsertObject) {
                 let queryString =
                 `INSERT INTO ${tableOneCol} SET ?;`;
