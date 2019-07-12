@@ -1,5 +1,6 @@
 <nav>
   <!-- navbar content here  -->
+    <div class="row"><div class="col s6"> <h4>My Account</h4> </div></div>
   <ul id="slide-out" class="sidenav">
     <li>
       <div class="user-view">
@@ -27,9 +28,12 @@
     <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
   </div>
 </nav>
+
+
 {{!-- start of content  --}}
+{{!-- graphs --}}
 <div class="container">
-  <div class="row"><div class="col s6 offset-s6"> <h1>Crypto BOB</h1> </div></div>
+  <div class="row"><div class="col s6"> <h1>Graphs</h1> </div></div>
   <div class="row">
     <div class="col s4 card teal">
       <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
@@ -41,7 +45,19 @@
   </div>
   <div class="row"></div>
 
-
+{{!-- NEWs --}}
+<div class="container" id="newsContainer">
+    <div class="row"><div class="col s6"> <h1>News</h1> </div></div>
+  <div class="row">
+    <div class="col s4 card">
+      <div id="newsContainer1" style="height: 300px; width: 100%;"></div>
+    </div>
+    <div class="col s4 card">
+      <div id="newsContainer2" style="height: 300px; width: 100%;"></div></div>
+    <div class="col s4 card">
+      <div id="newsContainer3" style="height: 300px; width: 100%;"></div></div>
+  </div>
+  <div class="row"></div>
 
 </div>
 
