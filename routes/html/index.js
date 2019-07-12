@@ -3,6 +3,7 @@ const sql = require('../../controlers/mysql2ORMController')
 const router = express.Router();
 
 
+<<<<<<< HEAD
 //signup 
 router.post("/signup", async function(req, res) {
     let connection = await sql.GetConnection();
@@ -12,6 +13,13 @@ router.post("/signup", async function(req, res) {
     //lookup in mysql for the user req.body.id and return there watchlist
 
     res.send("watchlist", { news: data });
+=======
+// /account/
+
+// display home page navebar page
+router.get("/", function(req, res) {
+    res.render("DisplayAll")
+>>>>>>> 59c3603d9a446bd7489af0e5898f36a8b23460f4
 });
 
 
@@ -46,7 +54,11 @@ router.get("/addnotification", function(req, res) {
 
 //display all current news 
 router.get("/news", function(req, res) {
+<<<<<<< HEAD
     res.render("cryptoNews")
+=======
+    res.render("news")
+>>>>>>> 59c3603d9a446bd7489af0e5898f36a8b23460f4
 });
 
 module.exports = router;
