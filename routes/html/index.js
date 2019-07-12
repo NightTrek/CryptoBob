@@ -10,6 +10,7 @@ router.get("/", function (req, res) {
     res.render("DisplayAll")
 });
 
+
 //display the watchlist page broken
 router.get("/watchlist:id", async function (req, res) {
     let connection = await sql.GetConnection();
