@@ -3,7 +3,7 @@ const router = express.Router();
 const sql = require('../../controlers/mysql2ORMController')
 
 
-router.get("/", function (req, res) {
+router.get("/login", function (req, res) {
     // connection.query("SELECT * FROM mining;", function(err, data) {
     //   if (err) {
     //     return res.status(500).end();
@@ -13,6 +13,14 @@ router.get("/", function (req, res) {
     // });
     res.send("/api/")
 });
+
+router.post("/login", function (req, res) {
+    let loginData = req.body;
+
+    res.send("/api/")
+});
+
+
 //api which gets news from sql 
 router.get("/generalnews", async function (req, res) {
     try{
