@@ -28,10 +28,9 @@
             <button id="signup" class="btn waves-effect waves-light" type="signup" name="action">Sign up</button>
           </div>
           {{!-- new sign up card --}}
-          {{!-- <div class="container"> --}}
+          
             <div class="row">
-              {{!-- <div class="col s3"></div> --}}
-              <div class="col s12">
+                       <div class="col s12">
                 <div class="card" id="signupCard">
                   <div class="card-content #b2dfdb teal lighten-4">
                     <span class="card-title">Create an Account</span>
@@ -39,11 +38,11 @@
                       <form class="col s12">
                         <div class="row">
                           <div class="input-field col s6">
-                            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                            <input id="first_name" type="text" class="validate">
                             <label class="active" for="first_name">First Name</label>
                           </div>
                           <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate" placeholder="Last Name">
+                            <input id="last_name" type="text" class="validate">
                             <label class="active" for="last_name">Last Name</label>
                           </div>
                         </div>
@@ -91,8 +90,7 @@
                 </div>
               </div>
             </div>
-          {{!-- </div> --}}
-        </div>
+              </div>
       </div>
     </div>
   </div>
@@ -121,27 +119,23 @@
 
     });
 
-    $(document).on('click', '#submitSign', (event) => {
-      event.preventDefault()
-      let firstName = $('#first_name').val()
-      console.log(firstName)
-      let lastName = $('#last_name').val()
-      console.log(lastName)
-      let userName = $('#username').val()
-      console.log(userName)
-      let passWord = $('#password').val()
-      console.log(passWord)
-      let eMail = $('#email').val()
-      console.log(userName)
-      let phoneNumber = $('#number').val()
-      console.log(phoneNumber)
+$(document).on('click', '#submitSign', (event) => {
+    event.preventDefault()
+    let data = {
+      firstName: $('#first_name').val(),
+      lastName: $('#last_name').val(),
+      userName: $('#username').val(),
+      passWord: $('#password').val(),
+      eMail: $('#email').val(),
+      phoneNumber: $('#number').val(),
+      defaultCurrency: $('#defaultCurrency').val()
+    }
+    $.ajax({
+      method: "POST",
+      url: querystring,
+      body: data
 
-      $.ajax({
-        method: "POST",
-        url: querystring
-      })
-    });
-
-
+    })
+  });
 
   </script>
