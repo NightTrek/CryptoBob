@@ -1,29 +1,33 @@
 {
-    "name": "crytpoarcade",
-    "version": "1.0.0",
-    "description": "Crypto Arcade Game server",
-    "main": "server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ToneDef00/CryptoArcade.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/ToneDef00/CryptoArcade/issues"
-    },
-    "homepage": "https://github.com/ToneDef00/CryptoArcade#readme",
-    "dependencies": {
-        "dotenv": "^8.0.0",
-        "express": "^4.17.1",
-        "express-handlebars": "^3.1.0",
-        "moment": "^2.24.0",
-        "mysql2": "^1.6.5",
-        "request": "^2.88.0",
-        "request-promise": "^4.2.4"
-    }
+  "name": "CrytpoTradingPlatform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ToneDef00/CryptoArcade.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ToneDef00/CryptoArcade/issues"
+  },
+  "homepage": "https://github.com/ToneDef00/CryptoArcade#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "moment": "^2.24.0",
+    "mysql2": "^1.6.5",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
 }

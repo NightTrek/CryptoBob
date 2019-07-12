@@ -1,0 +1,289 @@
+id,currency,currencyLong,txfee
+1,BTC,Bitcoin,0.0005
+2,LTC,Litecoin,0.01
+3,DOGE,Dogecoin,2
+4,VTC,Vertcoin,0.02
+5,PPC,Peercoin,0.02
+6,FTC,Feathercoin,0.2
+7,RDD,ReddCoin,2
+8,NXT,NXT,2
+9,DASH,Dash,0.05
+10,POT,PotCoin,0.002
+11,BLK,BlackCoin,0.02
+12,EMC2,Einsteinium,0.2
+13,XMY,Myriad,0.2
+14,EFL,ElectronicGulden,0.2
+15,GLC,GoldCoin,0.0002
+16,SLR,SolarCoin,0.2
+17,GRS,Groestlcoin,0.2
+18,NLG,Gulden,0.2
+19,XWC,WhiteCoin,0.2
+20,MONA,MonaCoin,0.2
+21,THC,HempCoin,0.2
+22,ENRG,EnergyCoin,0.2
+23,VRC,VeriCoin,0.0002
+24,CURE,CureCoin,0.0002
+25,XMR,Monero,0.0001
+26,CLOAK,CloakCoin,0.02
+27,BSD,BitSend,0.002
+28,KORE,Kore,0.02
+29,XDN,DigitalNote,1
+30,NAV,NAVCoin,0.2
+31,XST,Stealth,0.02
+32,VIA,ViaCoin,0.2
+33,PINK,PinkCoin,0.2
+34,IOC,I/OCoin,0.2
+35,CANN,CannabisCoin,0.2
+36,SYS,SysCoin,0.0002
+37,NEOS,NeosCoin,0.02
+38,DGB,DigiByte,0.2
+39,BTS,BitShares,5
+40,BURST,BURST,2
+41,EXCL,ExclusiveCoin,0.2
+42,BITS,Bitswift,2
+43,DOPE,DopeCoin,0.002
+44,BLOCK,Blocknet,0.02
+45,ABY,ArtByte,0.2
+46,XMG,Magi,0.0002
+47,BAY,BitBay,0.2
+48,XRP,XRP,1
+49,GAME,GameCredits,0.2
+50,NXS,Nexus,0.2
+51,COVAL,"Circuits of Value",200
+52,XCP,Counterparty,0.2
+53,BITB,BitBean,0.2
+54,XVG,Verge,5
+55,GEO,GeoCoin,0.1
+56,FLDC,FoldingCoin,150
+57,GRC,GridCoin,0.2
+58,FLO,FLO,0.2
+59,NBT,Nubits,0.02
+60,XEM,NEM,4
+61,MUE,MonetaryUnit,0.02
+62,DMD,Diamond,0.002
+63,GAM,Gambit,0.45
+64,SPHR,Sphere,0.1
+65,OK,OkCash,0.2
+66,AEON,Aeon,0.1
+67,ETH,Ethereum,0.01
+68,TX,TransferCoin,0.02
+69,EXP,Expanse,0.01
+70,OMNI,OmniCoin,0.1
+71,USDT,Tether,5
+72,AMP,SynereoAmp,5
+73,XLM,Lumen,0.01
+74,BITCNY,BitCNY,1.5
+75,RVR,RevolutionVR,0.1
+76,EMC,EmerCoin,0.02
+77,FCT,Factom,0.01
+78,MAID,MaidSafeCoin,2
+79,EGC,EverGreenCoin,0.2
+80,SLS,SaluS,0.002
+81,RADS,Radium,0.2
+82,DCR,Decred,0.01
+83,PIVX,Pivx,0.02
+84,MEME,Memetic,0.02
+85,STEEM,STEEM,0.01
+86,2GIVE,2GIVE,0.01
+87,LSK,Lisk,0.1
+88,DGD,DigixDAO,0.038
+89,BRK,Breakout,0.02
+90,WAVES,Waves,0.001
+91,LBC,"LBRY Credits",0.02
+92,SBD,SteemDollars,0.01
+93,BRX,"Breakout Stake",0.02
+94,ETC,"Ethereum Classic",0.01
+95,STRAT,Stratis,0.2
+96,SYNX,Syndicate,0.2
+97,EBST,eBoost,0.1
+98,VRM,Verium,0.4
+99,SEQ,Sequence,0.2
+100,SNGLS,SingularDTV,3.5
+101,REP,Augur,0.05
+102,SHIFT,Shift,0.01
+103,ARDR,Ardor,2
+104,XZC,ZCoin,0.1
+105,NEO,Neo,0.025
+106,ZEC,ZCash,0.01
+107,ZCL,Zclassic,0.01
+108,IOP,"Internet Of People",0.2
+109,GOLOS,Golos,0.01
+110,GBG,Gbg,0.01
+111,UBQ,Ubiq,0.01
+112,KMD,Komodo,0.002
+113,SIB,Sibcoin,0.2
+114,ION,Ion,0.2
+115,QWARK,Qwark,0.1
+116,CRW,Crown,0.02
+117,SWT,"Swarm City Token",4.5
+118,MLN,Melon,0.1
+119,TKS,Tokes,0.1
+120,ARK,Ark,0.1
+121,DYN,Dynamic,0.02
+122,MUSIC,Musicoin,0.01
+123,DTB,Databits,5
+124,INCNT,Incent,0.1
+125,GBYTE,Bytes,0.002
+126,GNT,Golem,9
+127,NXC,Nexium,94
+128,EDG,Edgeless,3
+129,MORE,More,4
+130,TRST,Trustcoin,7
+131,WINGS,"Wings DAO",8
+132,RLC,iEx.ec,3
+133,GNO,Gnosis,0.05
+134,GUP,Guppy,39
+135,LUN,Lunyr,0.45
+136,HMQ,Humaniq,74
+137,ANT,Aragon,1.3
+138,ZEN,Horizen,0.002
+139,SC,Siacoin,0.1
+140,BAT,"Basic Attention Token",4.5
+141,1ST,Firstblood,4.5
+142,QRL,"Quantum Resistant Ledger",0.1
+143,PTOY,Patientory,41
+144,BNT,Bancor,1.05
+145,NMR,Numeraire,0.2
+146,SNT,"Status Network Token",29
+147,DCT,DECENT,0.1
+148,XEL,XEL,0.2
+149,MCO,Crypto.com,0.25
+150,ADT,adToken,109
+151,FUN,FunFair,49
+152,PAY,"TenX Pay Token",3.5
+153,MTL,METAL,2.5
+154,STORJ,STORJ,4.5
+155,ADX,AdEx,7
+156,OMG,OmiseGO,0.45
+157,CVC,Civic,12
+158,PART,Particl,0.1
+159,QTUM,Qtum,0.01
+160,BCH,"Bitcoin Cash (ABC)",0.001
+161,DNT,district0x,55
+162,ADA,Cardano,1
+163,MANA,Decentraland,15
+164,SALT,Salt,3
+165,TIX,Blocktix,5
+166,RCN,"Ripio Credit Network",56
+167,VIB,Viberate,26
+168,MER,Mercury,0.1
+169,POWR,PowerLedger,8
+170,ENG,Enigma,2
+171,UKG,UnikoinGold,27
+172,IGNIS,Ignis,2
+173,SRN,"Sirin Token",18
+174,WAX,"Worldwide Asset Exchange",18
+175,ZRX,"0x Protocol",2
+176,VEE,BLOCKv,139
+177,BCPT,"BlockMason Credit Protocol",21
+178,TRX,Tron,0.003
+179,TUSD,TrueUSD,1
+180,LRC,Loopring,15
+181,UP,UpToken,48
+182,DMT,DMarket,3
+183,POLY,Polymath,5
+184,PRO,Propy,5
+185,BLT,Bloom,19
+186,STORM,Storm,195
+187,AID,AidCoin,29
+188,NGC,Naga,9
+189,GTO,Gifto,26
+190,OCN,Odyssey,189
+191,USD,"US Dollar",0
+192,TUBE,BitTube,0.01
+193,CBC,CashBet,82
+194,CMCT,"Crowd Machine",1
+195,NLC2,NoLimitCoin,0.1
+196,BKX,Bankex,30
+197,MFT,Mainframe,216
+198,LOOM,"Loom Network",14
+199,RFR,Refereum,310
+200,RVN,RavenCoin,1
+201,BFT,BnkToTheFuture,29
+202,GO,GoChain,0.01
+203,HYDRO,Hydro,365
+204,UPP,"Sentinel Protocol",44
+205,ENJ,Enjin,18
+206,MET,Metronome,0.95
+207,DTA,Data,714
+208,EDR,Endor,16
+209,BOXX,Blockparty,15
+210,IHT,"I-House Token",54
+211,XHV,"Haven Protocol",0.01
+212,NPXS,"Pundi X",1368
+213,PMA,PumaPay,1026
+214,PAL,"PAL Network",1
+215,PAX,"Paxos Standard",1
+216,ZIL,Zilliqa,30
+217,MOC,Mossland,17
+218,OST,"Simple Token",28
+219,SPC,SpaceChain,110
+220,MEDX,MediBloc,219
+221,BSV,"Bitcoin SV",0.001
+222,IOST,IOST,1
+223,XNK,"Ink Protocol",133
+224,NCASH,"Nucleus Vision",328
+225,SOLVE,Solve.Care,1.25
+226,USDS,StableUSD,1
+227,JNT,Jibrel,16
+228,LBA,Cred,56
+229,MOBI,Mobius,1
+230,DENT,Dent,530
+231,DRGN,Dragonchain,7
+232,VITE,Vite,1
+233,IOTX,IoTeX,1
+234,BTM,Bytom,0.1
+235,ELF,aelf,1
+236,QNT,Quant,1
+237,BTU,"BTU Protocol",1
+238,SPND,Spendcoin,1
+239,BTT,BitTorrent,1
+240,NKN,NKN,1
+241,GRIN,Grin,0.1
+242,CTXC,Cortex,1
+243,HXRO,Hxro,1
+244,SERV,Serve,1
+245,META,Metadium,0.006
+246,FSN,Fusion,1
+247,HST,"Decision Token",1
+248,ANKR,Ankr,1
+249,TRAC,OriginTrail,1
+250,CRO,"Crypto.com Chain",1
+251,ONT,Ontology,1
+252,ONG,OntologyGas,0.1
+253,AERGO,Aergo,1
+254,TTC,TTC,0.006
+255,SLT,Smartlands,0.1
+256,PTON,Foresting,1
+257,PI,PCHAIN,1
+258,PLA,PlayChip,1
+259,ART,Maecenas,1
+260,VBK,VeriBlock,0.1
+261,ORBS,Orbs,1
+262,BORA,BORA,1
+263,CND,Cindicator,1
+264,TRIO,Tripio,1
+265,FX,"Function X",1
+266,ATOM,Cosmos,0.01
+267,OCEAN,"Ocean Protocol",1
+268,XYO,XYO,1
+269,WIB,Wibson,1
+270,BWX,"Blue Whale eXchange",1
+271,SNX,Synthetix,1
+272,SUSD,"Synthetix sUSD",1
+273,VDX,"Vodi X",1
+274,COSM,"Cosmo Coin",1
+275,OGO,Origo,1
+276,ITM,Intimate,1
+277,STPT,"Standard Tokenization Protocol",1
+278,LAMB,Lambda,1
+279,FET,Fetch,1
+280,MKR,Maker,0.001
+281,DAI,Dai,1
+282,CPT,"Contents Protocol",1
+283,ABT,ArcBlock,1
+284,PROM,Prometeus,1
+285,FTM,Fantom,1
+286,ABYSS,Abyss,1
+287,EOS,EOS,0.1
+288,FXC,Flexacoin,1
