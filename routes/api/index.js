@@ -48,7 +48,6 @@ router.get("/login", function(req, res) {
     res.send("/api/")
 });
 
-<<<<<<< HEAD
 router.post("/login", function (req, res) {
     try{
     let connection = await sql.GetConnection();
@@ -88,18 +87,7 @@ router.post("/signup", function (req, res) {
 catch(err){
 
 }
-=======
-router.post("/login", function(req, res) {
-    let loginData = req.body;
 
-    res.send("/api/")
-});
-
-router.post("/signup", function(req, res) {
-    let loginData = req.body;
-
-    res.send("/api/")
->>>>>>> beeebfd4164c3cf04791f28a8debc990692bd574
 });
 
 
