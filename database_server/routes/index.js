@@ -4,7 +4,6 @@ const sql = require('../../controlers/mysql2ORMController')
 const md = require("../../scripts/getMarketData");
 const key = require('../../config/keys');
 const bcrypt = require('bcrypt');
-const saltRounds = 10;
 const passwordHash = "$2b$10$0HyaBW.PDM61SJIP6KBNIOFpl4tzt47UJOugxoCStZIKfSrRLMlKi";
 
 
