@@ -1,36 +1,37 @@
-<div class="container #dcedc8 light-green lighten-4">
-  <h1 class="center-align">CryptoBob</h1>
-  <div class="sub-container center-align">
-    <div class="row">
-      <div class="col s3"></div>
-      <div class="col s6 m6">
+<div class="background #dcedc8 light-green lighten-4">
+  <div class="container">
+    <h1 class="center-align">CryptoBob</h1>
+    <div class="sub-container center-align">
+      <div class="row">
+        <div class="col s3"></div>
+        <div class="col s6 m6">
 
-        <div id="form" class="card #1a237e indigo darken-4">
-          <div class="card-content #bbdefb blue lighten-4" id="loginCard">
-            <div class="row">
-              <div class="usernameInput col s8">
-                <input value="" id="usernameInput" type="text" class="validate">
-                <label class="active" for="usernameInput">username</label>
+          <div id="form" class="card #1a237e indigo darken-4">
+            <div class="card-content #bbdefb blue lighten-4" id="loginCard">
+              <div class="row">
+                <div class="usernameInput col s8">
+                  <input value="" id="usernameInput" type="text" class="validate">
+                  <label class="active" for="usernameInput">username</label>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="passwordInput col s8">
-                <input value="" id="passwordInput" type="text" class="validate">
-                <label class="active" for="passwordInput">password</label>
+              <div class="row">
+                <div class="passwordInput col s8">
+                  <input value="" id="passwordInput" type="text" class="validate">
+                  <label class="active" for="passwordInput">password</label>
+                </div>
               </div>
+              <button id="submitLog" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
             </div>
-            <button id="submitLog" class="btn waves-effect waves-light" type="submit" name="action">Submit
-              <i class="material-icons right">send</i>
-            </button>
-          </div>
-          <div class="container card-action">
-            <button id="login" class="btn waves-effect waves-light" type="login" name="action">Login</button>
-            <button id="signup" class="btn waves-effect waves-light" type="signup" name="action">Sign up</button>
-          </div>
-          {{!-- new sign up card --}}
-          
+            <div class="container card-action">
+              <button id="login" class="btn waves-effect waves-light" type="login" name="action">Login</button>
+              <button id="signup" class="btn waves-effect waves-light" type="signup" name="action">Sign up</button>
+            </div>
+            {{!-- new sign up card --}}
+
             <div class="row">
-                       <div class="col s12">
+              <div class="col s12">
                 <div class="card" id="signupCard">
                   <div class="card-content #b2dfdb teal lighten-4">
                     <span class="card-title">Create an Account</span>
@@ -72,7 +73,8 @@
                         </div>
                         <div class="row">
                           <div class="input-field col s12">
-                            <input id="defaultCurrency" type="text" pattern="[A-Z]{3}" class="validate" placeholder="USD">
+                            <input id="defaultCurrency" type="text" pattern="[A-Z]{3}" class="validate"
+                              placeholder="USD">
                             <label class="active" for="defaultCurrency">Default Currency (USD, BTC, ETH)</label>
                           </div>
                         </div>
@@ -90,36 +92,38 @@
                 </div>
               </div>
             </div>
-              </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
 
-  <script>
+<script>
 
-    $('#signupCard').hide()
+  $('#signupCard').hide()
+  $('#loginCard').show()
+
+  $("#signup").click(function () {
+    $("#signupCard").show()
+    $('#loginCard').hide()
+  });
+
+  $("#login").click(function () {
+    $("#signupCard").hide()
     $('#loginCard').show()
+  });
 
-    $("#signup").click(function () {
-      $("#signupCard").show()
-      $('#loginCard').hide()
-    });
+  $(document).on('click', '#submitLog', (event) => {
+    event.preventDefault()
+    let userEmail = $('#usernameInput').val()
+    console.log(userEmail)
+    let passwordInput = $('#passwordInput').val()
+    console.log(passwordInput)
 
-    $("#login").click(function () {
-      $("#signupCard").hide()
-      $('#loginCard').show()
-    });
+  });
 
-    $(document).on('click', '#submitLog', (event) => {
-      event.preventDefault()
-      let userEmail = $('#usernameInput').val()
-      console.log(userEmail)
-      let passwordInput = $('#passwordInput').val()
-      console.log(passwordInput)
-
-    });
-
-$(document).on('click', '#submitSign', (event) => {
+  $(document).on('click', '#submitSign', (event) => {
     event.preventDefault()
     let data = {
       firstName: $('#first_name').val(),
@@ -138,4 +142,4 @@ $(document).on('click', '#submitSign', (event) => {
     })
   });
 
-  </script>
+</script>
