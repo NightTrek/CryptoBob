@@ -7,12 +7,15 @@ require("dotenv").config();
 console.log('this is loaded');
 
 
-var bittrexKeys = {
+const keys = {
   key: process.env.Bittrex_key,
-  secret: process.env.Bittrex_SECRET
+  secret: process.env.Bittrex_SECRET,
+  ptp: process.env.DataBaseHomeSecret,
+  invalideAttempt:process.env.InvalideBackEndLoginAttempts
 };
 
 
 
 
-module.exports = bittrexKeys
+
+module.exports = keys
