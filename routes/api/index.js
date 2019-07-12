@@ -40,6 +40,7 @@ router.get("/", function (req, res) {
 
     //   res.render("index", { quotes: data });
     // });
+    
     res.send("/api/")
 });
 
