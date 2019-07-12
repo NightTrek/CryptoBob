@@ -49,6 +49,12 @@ router.post("/login", function (req, res) {
     res.send("/api/")
 });
 
+router.post("/signup", function (req, res) {
+    let loginData = req.body;
+
+    res.send("/api/")
+});
+
 
 //api which gets news from sql 
 router.get("/generalnews", async function (req, res) {
