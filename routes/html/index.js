@@ -9,8 +9,9 @@ const router = express.Router();
 // display home page navebar page
 router.get("/", function(req, res) {
     res.render("DisplayAll")
+});
 //signup 
-router.post("/signup", function (req, res) {
+router.post("/signup", async function (req, res) {
     let connection = await sql.GetConnection();
     let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.body.id);
     console.log(watchlistArray[0].watchlistArray);
