@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const sql = require('../../controlers/mysql2ORMController')
+const loginkeys = require('../../config/loginKeys');
 
 
 
@@ -44,15 +45,44 @@ router.get("/", function (req, res) {
 });
 
 router.post("/login", function (req, res) {
-    let loginData = req.body;
-
-    res.send("/api/")
+    try{
+    let connection = await sql.GetConnection();
+    let passwordHash = await sql.selectSomethingWhere(connection, password, users, userName, req.body.data.userName);
+    let validateLogin = await bcrypt.compare(req.body.data.password, passwordHash);
+    if( validateLogin){
+        res.send(true)
+    }else{
+        res.send(false)
+    }
+}catch(err){
+    throw err
+}
 });
 
 router.post("/signup", function (req, res) {
-    let loginData = req.body;
+    try{
+    let hash = await  bcrypt.hash(req.body.data.password, 10);
+   let signUpData = {
+        userName: req.body.data.userName,
+        password: hash,
+        email: req.body.data.eMail, 
+        phone: req.body.data.phone,
+        default_currency:req.body.data.default_currency,
+        watchlistArray: null,
+        notificationArray: null,
+        exchangeSecret: null,
 
-    res.send("/api/")
+   };
+    let con = await sql.GetConnection();
+    let addToDB = await sql.insertNewUsers(con,"users", signUpData)
+
+    let loginHash = await  bcrypt.hash(signUpData.password+signUpData.userName, 10);
+    loginkeys.key.push(loginHash);
+    res.send(loginHash)
+}
+catch(err){
+
+}
 });
 
 

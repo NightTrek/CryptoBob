@@ -132,14 +132,19 @@ module.exports = {
         // new user shit
         insertNewUsers: async function(con, tableOneCol, InsertObject) {
             let queryString =
-                `INSERT INTO currencies SET ?;`;
+                `INSERT INTO ${tableOneCol} SET ?;`;
             try {
                 console.log(InsertObject)
                 let response = await con.query(
                     queryString, {
-                        currency: InsertObject.ValueA,
-                        currencyLong: InsertObject.ValueB,
-                        txfee: InsertObject.ValueC
+                        userName: InsertObject.userName,
+                        password: InsertObject.password,
+                        email: InsertObject.email,
+                        phone: InsertObject.phone,
+                        default_currency: InsertObject.default_currency,
+                        watchlistArray: InsertObject.watchlistArray,
+                        notificationsArray: InsertObject.notificationsArray,
+                        exchangeSecret: InsertObject.exchangeSecret
                     });
                 return new Promise((resolve, reject) => {
                     if (response) {
