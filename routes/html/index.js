@@ -13,8 +13,10 @@ const router = express.Router();
 router.get("/", function(req, res) {
     res.render("DisplayAll")
 });
+
 //signup 
 router.post("/signup", async function (req, res) {
+
     let connection = await sql.GetConnection();
     let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.body.id);
     console.log(watchlistArray[0].watchlistArray);
@@ -96,6 +98,11 @@ router.get("/notifications:id", async function(req, res) {
 //add notification page 
 router.get("/addnotification", function(req, res) {
     res.render("notificationEdit") //
+});
+
+//notification page for testing
+router.get("/notifications", function(req, res) {
+    res.render("notifications") //
 });
 
 //display all current news 

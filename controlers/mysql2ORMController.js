@@ -164,6 +164,7 @@ module.exports = {
                 }
             });
 
+
         } catch (err) {
             console.log("error inserting data to table");
             throw err;
@@ -189,6 +190,7 @@ module.exports = {
                     resolve(response[0]);
                 } else {
                     reject({ err: "SQL server Response Error code:500 in method InsertINtoNEWs()" });
+
                 }
             });
 
