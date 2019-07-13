@@ -1,15 +1,17 @@
 const mysql = require("mysql2/promise");
+const sql = require('../controlers/mysql2ORMController');
 
 async function main() {
 
 
-    const connection = await mysql.createConnection({
-        host: "localhost",
-        port: 3306,
-        user: "root",
-        password: "password",
-        database: "crypto_db"
-    });
+    const connection = await sql.GetConnection();
+    // mysql.createConnection({
+    //     host: "localhost",
+    //     port: 3306,
+    //     user: "root",
+    //     password: "password",
+    //     database: "crypto_db"
+    // });
 
     const CryptoNewsAPI = require('crypto-news-api').default
 
@@ -26,7 +28,7 @@ async function main() {
     // Get top news
     Api.getTopNews()
         .then(function (articles) {
-            // console.log(articles[0])
+            console.log(articles[0])
             // console.log(articles[0].primaryCategory)
             // console.log(articles[0].title)
             // console.log(articles[0].description.length)
@@ -34,16 +36,14 @@ async function main() {
 
             articles.forEach(async (article) => {
                 try {
-                    await connection.query(
-                        "INSERT INTO cryptoNews(_id, category, title, description, url) VALUES (?,?,?,?,?)",
-                        [
-                            article._id,
-                            article.primaryCategory,
-                            article.title,
-                            article.description.slice(0, 255),
-                            article.url
-                        ]
-                    )
+                    let data = {
+                        ValueA: article._id,
+                        ValueB: article.primaryCategory,
+                        ValueC: article.title,
+                        ValueD: article.description.slice(0, 255),
+                        ValueE: article.url
+                    }
+                    let insertValid = await sql.insertNews(connection, "cryptoNews", data);
 
                 } catch (error) {
                     console.log(error)

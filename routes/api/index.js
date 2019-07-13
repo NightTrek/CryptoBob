@@ -46,6 +46,33 @@ router.post("/signup", async function(req, res) {
 
     }
 
+
+
+
+router.get("/", function (req, res) {
+
+    // connection.query("SELECT * FROM mining;", function(err, data) {
+    //   if (err) { 
+    //     return res.status(500).end();
+    //   }
+
+    //   res.render("index", { quotes: data });
+    // });
+    
+    res.send("/api/")
+});
+
+router.post("/login", function (req, res) {
+    let loginData = req.body;
+
+    res.send("/api/")
+});
+
+router.post("/signup", function (req, res) {
+    let loginData = req.body;
+
+    res.send("/api/")
+
 });
 
 
