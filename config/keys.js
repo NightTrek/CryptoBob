@@ -1,22 +1,27 @@
-require("dotenv").config();
+const dotenv = require("dotenv")
 
-
+const result = dotenv.config()
+ 
+if (result.error) {
+  throw result.error
+}
 //js
 
 
 console.log('this is loaded');
+console.log(process.env.BITTREX_KEY)
+// console.log(process.env.DataBaseHomeSecret)
 
 
 const keys = {
-  key: process.env.Bittrex_key,
-  secret: process.env.Bittrex_SECRET,
-  ptp: process.env.DataBaseHomeSecret,
-  invalideAttempt:process.env.InvalideBackEndLoginAttempts,
-  mysqlpass:process.env.GCC_mysqlPass
+  key: process.env.BITTREX_KEY,
+  secret: process.env.BITTREX_SECRET,
+  ptp: process.env.DBHOMESECRET,
+  mysqlpass:process.env.GCC_MYSQLPASS,
 };
 
 
-
+console.log(keys);
 
 
 module.exports = keys
