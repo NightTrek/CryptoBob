@@ -1,6 +1,10 @@
 <nav>
   <!-- navbar content here  -->
-    <div class="row"><div class="col s6"> <h4>My Account</h4> </div></div>
+    <div class="hoverable">
+    <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+    <div class="row"><div class="col s3"><h4>My Account</h4> </div></div>
+  </div>
+
   <ul id="slide-out" class="sidenav">
     <li>
       <div class="user-view">
@@ -24,38 +28,36 @@
     </li>
     <li><a class="subheader" href="#!"><i class="material-icons">autorenew</i>Auto Trading (Unavailable)</a></li>
   </ul>
-  <div class="hoverable">
-    <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-  </div>
+
 </nav>
 
 
 {{!-- start of content  --}}
 {{!-- graphs --}}
 <div class="container">
-  <div class="row"><div class="col s6"> <h1>Graphs</h1> </div></div>
+  <div class="row"><div class="center-align"> <h1>Graphs</h1> </div></div>
   <div class="row">
     <div class="col s4 card teal">
-      <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+      <div id="chartContainer1" style="height: 300px; width: 100%;">ETH</div>
     </div>
     <div class="col s4 card teal">
-      <div id="chartContainer2" style="height: 300px; width: 100%;"></div></div>
+      <div id="chartContainer2" style="height: 300px; width: 100%;">USD</div></div>
     <div class="col s4 card teal">
-      <div id="chartContainer3" style="height: 300px; width: 100%;"></div></div>
+      <div id="chartContainer3" style="height: 300px; width: 100%;">BTC</div></div>
   </div>
   <div class="row"></div>
 
 {{!-- NEWs --}}
 <div class="container" id="newsContainer">
-    <div class="row"><div class="col s6"> <h1>News</h1> </div></div>
+    <div class="row"><div class="col s12 center-align"> <h1>News</h1> </div></div>
   <div class="row">
     <div class="col s4 card">
-      <div id="newsContainer1" style="height: 300px; width: 100%;"></div>
+      <div id="newsContainer1" style="height: 300px; width: 100%;">News 1</div>
     </div>
     <div class="col s4 card">
-      <div id="newsContainer2" style="height: 300px; width: 100%;"></div></div>
+      <div id="newsContainer2" style="height: 300px; width: 100%;">News 2</div></div>
     <div class="col s4 card">
-      <div id="newsContainer3" style="height: 300px; width: 100%;"></div></div>
+      <div id="newsContainer3" style="height: 300px; width: 100%;">News 3</div></div>
   </div>
   <div class="row"></div>
 
