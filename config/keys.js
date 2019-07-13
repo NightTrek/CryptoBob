@@ -7,10 +7,7 @@ if (result.error) {
 }
 //js
 
-
 console.log('this is loaded');
-console.log(process.env.BITTREX_KEY)
-// console.log(process.env.DataBaseHomeSecret)
 
 
 const keys = {
@@ -20,8 +17,6 @@ const keys = {
   mysqlpass:process.env.GCC_MYSQLPASS,
 };
 
-
 console.log(keys);
-
 
 module.exports = keys
