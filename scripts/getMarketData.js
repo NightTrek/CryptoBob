@@ -337,7 +337,7 @@ module.exports = {
         let btc = [];
         // put entire thing in try catch
         try {
-            let connection = await sql.GetConnection();
+            let connection = await sql.GetConnection("cryptobob_db", key.key.mysqlpass,"35.236.118.253");
             let marketSummeries = await BT.getAllMarketSummeries();
             for (let i = 0; i < marketSummeries.length; i++) {
                 let marketNameArray = marketSummeries[i].MarketName.split('-');
