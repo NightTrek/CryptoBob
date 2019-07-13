@@ -23,7 +23,7 @@ app.use(routes);
 
 //server starting section
 //-==============================================================
-app.listen(PORT, function() {
+app.listen(PORT, "35.203.148.145", function() {
     console.log("App listening on PORT " + PORT);
 });
 
@@ -32,7 +32,7 @@ let test = setInterval(async function(){
     let res = await md.storeLiveCurrencyData();
     }
     catch(err){
-        console.log("Test Function failed ")
+        console.log("Store live currency Function failed ")
         throw err;
     }
 }, 30000);

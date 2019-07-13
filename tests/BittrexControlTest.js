@@ -42,13 +42,13 @@ const tests = async function() {
     //     console.log(err);
     //     console.log("orderbook failed");//
     // }
-    try {
-        let curList = await bt.makeCurrencyArray()
-        console.log(curList);
-    } catch (err) {
-        throw err;
-        n
-    }
+    // try {
+    //     let curList = await bt.makeCurrencyArray()
+    //     console.log(curList);
+    // } catch (err) {
+    //     throw err;
+        
+    // }
 
 
 }
