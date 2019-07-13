@@ -7,6 +7,7 @@ const loginkeys = require('../../config/loginKeys');
 
 // /api/
 
+
 router.post("/login", async function(req, res) {
     try {
         let connection = await sql.GetConnection();
@@ -19,6 +20,7 @@ router.post("/login", async function(req, res) {
         }
     } catch (err) {
         throw err
+
     }
 });
 
