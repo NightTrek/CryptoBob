@@ -23,7 +23,7 @@ app.use(routes);
 
 //server starting section
 //-==============================================================
-app.listen(PORT, function() {
+app.listen(PORT, "35.203.148.145", function() {
     console.log("App listening on PORT " + PORT);
 });
 
