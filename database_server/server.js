@@ -32,7 +32,7 @@ let test = setInterval(async function(){
     let res = await md.storeLiveCurrencyData();
     }
     catch(err){
-        console.log("Test Function failed ")
+        console.log("Store live currency Function failed ")
         throw err;
     }
 }, 30000);
