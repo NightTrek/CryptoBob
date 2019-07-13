@@ -1,5 +1,6 @@
 <nav>
   <!-- navbar content here  -->
+    <div class="row"><div class="col s6"> <h4>My Account</h4> </div></div>
   <ul id="slide-out" class="sidenav">
     <li>
       <div class="user-view">
@@ -14,10 +15,10 @@
         <a class="subheader" href="#!"><span class="white-text email" id="email">User's Email</span></a>
       </div>
     </li>
-    <li><a href="#!" class="waves-effect"><i class="material-icons">trending_up</i>Watchlist</a></li>
-    <li><a href="#!" class="waves-effect"><i class="material-icons">insert_chart</i>Portfolio</a></li>
-    <li><a href="#!" class="waves-effect"><i class="material-icons">chrome_reader_mode</i>News</a></li>
-    <li><a href="#!" class="waves-effect"><i class="material-icons">error</i>Notifications</a></li>
+    <li><a href="/account" class="waves-effect"><i class="material-icons">trending_up</i>Watchlist</a></li>
+    <li><a href="/portfolio" class="waves-effect"><i class="material-icons">insert_chart</i>Portfolio</a></li>
+    <li><a href="/account/news" class="waves-effect"><i class="material-icons">chrome_reader_mode</i>News</a></li>
+    <li><a href="/notifications" class="waves-effect"><i class="material-icons">error</i>Notifications</a></li>
     <li>
       <div class="divider"></div>
     </li>
@@ -27,9 +28,12 @@
     <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
   </div>
 </nav>
+
+
 {{!-- start of content  --}}
+{{!-- graphs --}}
 <div class="container">
-  <div class="row"><div class="col s6 offset-s6"> <h1>Crypto BOB</h1> </div></div>
+  <div class="row"><div class="col s6"> <h1>Graphs</h1> </div></div>
   <div class="row">
     <div class="col s4 card teal">
       <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
@@ -41,7 +45,19 @@
   </div>
   <div class="row"></div>
 
-
+{{!-- NEWs --}}
+<div class="container" id="newsContainer">
+    <div class="row"><div class="col s6"> <h1>News</h1> </div></div>
+  <div class="row">
+    <div class="col s4 card">
+      <div id="newsContainer1" style="height: 300px; width: 100%;"></div>
+    </div>
+    <div class="col s4 card">
+      <div id="newsContainer2" style="height: 300px; width: 100%;"></div></div>
+    <div class="col s4 card">
+      <div id="newsContainer3" style="height: 300px; width: 100%;"></div></div>
+  </div>
+  <div class="row"></div>
 
 </div>
 
@@ -57,6 +73,13 @@
   // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
   // Or with jQuery
   $(document).ready(function () {
+    // // for pulling name and email from local storage
+// name = localStorage.getItem("name");
+// $('#name').text(name);
+// email = localStorage.getItem("email");
+// $('#email').text(email);
+
     $('.sidenav').sidenav();
   });
+
 </script>

@@ -16,7 +16,7 @@ router.post("/api/marketDataforToken", async function (req, res) {
        let isValid = await bcrypt.compare(req.body.data.key, passwordHash);
             if(isValid){
             if(md.key[req.body.data.ticker] !== undefined){
-                let connection = await sql.GetConnection()
+                let connection = await sql.GetConnection("cryptobob_db",key.key.mysqlpass,"35.236.118.253")
                 let tokenData = await sql.SelectAllAndOrderByTmestamp(connection, md.key[req.body.data.ticker], req.body.data.market );
                 if(tokenData){
                     connection.end();

@@ -3,10 +3,11 @@ const mysql = require('mysql2/promise');
 
 module.exports = {
     db: "cryptobob_db",
-    GetConnection: async function (db = this.db, pass = "password") {
+
+    GetConnection: async function(db = this.db, pass = "password", host="localhost") {
         try {
             return await mysql.createPool({
-                host: "localhost",
+                host: host,
                 // Your port; if not 3306
                 port: 3306,
                 user: "root",
@@ -17,6 +18,7 @@ module.exports = {
                 queueLimit: 0
             });
         } catch (err) {
+            console.log('error unable to connect to sqlDB');
             throw err;
         }
 
@@ -129,17 +131,36 @@ module.exports = {
         }
     },
 
-    // new user shit
-    insertNewUsers: async function (con, tableOneCol, InsertObject) {
-        let queryString =
-            `INSERT INTO users SET ?;`;
-        try {
-            console.log(InsertObject)
-            let response = await con.query(
-                queryString, {
-                    currency: InsertObject.ValueA,
-                    currencyLong: InsertObject.ValueB,
-                    txfee: InsertObject.ValueC
+
+            } catch (err) {
+                console.log("error inserting data to table");
+                throw err;
+            }
+        },
+        
+        // new user shit
+        insertNewUsers: async function(con, tableOneCol, InsertObject) {
+            let queryString =
+                `INSERT INTO ${tableOneCol} SET ?;`;
+            try {
+                console.log(InsertObject)
+                let response = await con.query(
+                    queryString, {
+                        userName: InsertObject.userName,
+                        password: InsertObject.password,
+                        email: InsertObject.email,
+                        phone: InsertObject.phone,
+                        default_currency: InsertObject.default_currency,
+                        watchlistArray: InsertObject.watchlistArray,
+                        notificationsArray: InsertObject.notificationsArray,
+                        exchangeSecret: InsertObject.exchangeSecret
+                    });
+                return new Promise((resolve, reject) => {
+                    if (response) {
+                        resolve(response[0]);
+                    } else {
+                        reject({ err: "SQL server Response Error code:500 in method findWhoHasMost()" });
+                    }
                 });
             return new Promise((resolve, reject) => {
                 if (response) {

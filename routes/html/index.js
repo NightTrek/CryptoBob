@@ -6,6 +6,13 @@ const md = require("../scripts/getMarketData");
 const router = express.Router();
 
 
+
+// /account/
+
+// display home page navebar page
+router.get("/", function(req, res) {
+    res.render("DisplayAll")
+});
 //signup 
 router.post("/signup", async function (req, res) {
     let connection = await sql.GetConnection();
@@ -15,6 +22,7 @@ router.post("/signup", async function (req, res) {
     //lookup in mysql for the user req.body.id and return there watchlist
 
     res.send("watchlist", { news: data });
+
 });
 
 
@@ -48,6 +56,7 @@ router.get("/watchlist:id", async function (req, res) {
                 dayAvg: null
             })
 
+
         }
 
 
@@ -73,7 +82,7 @@ let percentchange response[0].last response[response.length-1].last
 });
 
 //display all current notifications 
-router.get("/notifications:id", async function (req, res) {
+router.get("/notifications:id", async function(req, res) {
     let connection = await sql.GetConnection();
     let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.body.id);
     console.log(watchlistArray[0].watchlistArray);
@@ -85,11 +94,12 @@ router.get("/notifications:id", async function (req, res) {
 
 
 //add notification page 
-router.get("/addnotification", function (req, res) {
-    res.render("notificationEdit")//
+router.get("/addnotification", function(req, res) {
+    res.render("notificationEdit") //
 });
 
 //display all current news 
+
 router.get("/news", async function (req, res) {
     try {
         let connection = await sql.GetConnection();
@@ -101,6 +111,7 @@ router.get("/news", async function (req, res) {
         console.log(err)
         return res.status(500).end();
     }
+
 });
 
 module.exports = router;

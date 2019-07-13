@@ -1,107 +1,98 @@
+<div class="background #dcedc8 light-green lighten-4">
+  <div class="container">
+    <h1 class="center-align">CryptoBob</h1>
+    <div class="sub-container center-align">
+      <div class="row">
+        <div class="col s3"></div>
+        <div class="col s6 m6">
 
-``````````<div class="container">
+          <div id="form" class="card #1a237e indigo darken-4">
+            <div class="card-content #bbdefb blue lighten-4" id="loginCard">
 
-
-  <div class="sub-container">
-
-    <h1><i class="fa fa-facebook-square" aria-hidden="true"></i>CryptoBob</h1>
-    <hr>
-    <h2>Get your luck and earn even more $$$. </h2>
-    <h2>Sign up today!!! Hurry Up $$$</h2>
-    <br>
-    
-<div class="container ">
-  <div class="row">
-    <div class="col">
-      <h1 class="center-align">CryptoBob</h1>
-      <hr>
-      <h2 class=" left-align">Get your luck and earn even more $$$. </h2>
-      <h2 class="left-align">Sign up today!!! Hurry Up $$$</h2>
-      <br>
-    </div>
-  </div>
-  <div class="row">
-
-    <div class="col s12 m6">
-      <div id="form" class="card #1a237e indigo darken-4">
-        <div class="card-content #bbdefb blue lighten-4" id="loginCard">
-          <div class="row">
-            <div class="usernameInput col s8">
-              <input value="" id="usernameInput" type="text" class="validate">
-              <label class="active" for="usernameInput">username</label>
+              <div class="row">
+                <div class="usernameInput col s8">
+                  <input value="" id="usernameInput" type="text" class="validate">
+                  <label class="active" for="usernameInput">username</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="passwordInput col s8">
+                  <input value="" id="passwordInput" type="text" class="validate">
+                  <label class="active" for="passwordInput">password</label>
+                </div>
+              </div>
+              <button id="submitLog" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
             </div>
-
-          </div>
-          <div class="row">
-            <div class="passwordInput col s8">
-              <input value="" id="passwordInput" type="text" class="validate">
-              <label class="active" for="passwordInput">password</label>
+            <div class="container card-action">
+              <button id="login" class="btn waves-effect waves-light" type="login" name="action">Login</button>
+              <button id="signup" class="btn waves-effect waves-light" type="signup" name="action">Sign up</button>
             </div>
-          </div>
-          <button id="submitLog" class="btn waves-effect waves-light" type="submit" name="action">Submit
-            <i class="material-icons right">send</i>
-          </button>
-        </div>
-      </div>
-      <div class="card-action">
-        <button id="login" class="btn waves-effect waves-light" type="submit" name="action">Login</button>
-        <button id="signup" class="btn waves-effect waves-light" type="signup" name="action">signup</button>
+            {{!-- new sign up card --}}
 
-
-
-      </div>
-    </div>
-  </div>
-  {{!-- new sign up card --}}
-  <div class="row">
-    <div class="col s12 m6">
-      <div class="card" id="signupCard">
-        <div class="card-content #b2dfdb teal lighten-4">
-          <span class="card-title">Create an Account</span>
-          <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                  <label for="first_name">First Name</label>
-                </div>
-                <div class="input-field col s6">
-                  <input id="last_name" type="text" class="validate">
-                  <label for="last_name">Last Name</label>
+            <div class="row">
+              <div class="col s12">
+                <div class="card" id="signupCard">
+                  <div class="card-content #b2dfdb teal lighten-4">
+                    <span class="card-title">Create an Account</span>
+                    <div class="row">
+                      <form class="col s12">
+                        <div class="row">
+                          <div class="input-field col s6">
+                            <input id="first_name" type="text" class="validate">
+                            <label class="active" for="first_name">First Name</label>
+                          </div>
+                          <div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate">
+                            <label class="active" for="last_name">Last Name</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="username" type="text" class="validate">
+                            <label class="active" for="Username">Username</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label class="active" for="password">Password</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label class="active" for="email">Email</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="number" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="validate">
+                            <label class="active" for="phone number">Phone Number</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="defaultCurrency" type="text" pattern="[A-Z]{3}" class="validate"
+                              placeholder="USD">
+                            <label class="active" for="defaultCurrency">Default Currency (USD, BTC, ETH)</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <button id="submitSign" class="btn waves-effect waves-light" type="submit"
+                              name="action">Submit
+                              <i class="material-icons right">send</i>
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="username" type="text" class="validate">
-                  <label for="Username">Username</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="password" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="number" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="validate">
-                  <label for="phone number">Phone Number</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <button id="submitSign" class="btn waves-effect waves-light" type="submit" name="action">Submit
-                    <i class="material-icons right">send</i>
-                  </button>
-                </div>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -109,7 +100,6 @@
   </div>
 
 </div>
-
 
 <script>
 
@@ -126,37 +116,33 @@
     $('#loginCard').show()
   });
 
-   $(document).on('click', '#submitLog', (event) => {
+  $(document).on('click', '#submitLog', (event) => {
     event.preventDefault()
     let userEmail = $('#usernameInput').val()
     console.log(userEmail)
     let passwordInput = $('#passwordInput').val()
-      console.log(passwordInput)
-    
+    console.log(passwordInput)
+
   });
 
   $(document).on('click', '#submitSign', (event) => {
     event.preventDefault()
-    let firstName = $('#first_name').val()
-    console.log(firstName)
-    let lastName = $('#last_name').val()
-      console.log(lastName)
-    let userName = $('#username').val()
-    console.log(userName)
-    let passWord = $('#password').val()
-      console.log(passWord)
-    let eMail = $('#email').val()
-    console.log(userName)
-    let phoneNumber = $('#number').val()
-      console.log(phoneNumber)
-    
+    let data = {
+      firstName: $('#first_name').val(),
+      lastName: $('#last_name').val(),
+      userName: $('#username').val(),
+      passWord: $('#password').val(),
+      eMail: $('#email').val(),
+      phoneNumber: $('#number').val(),
+      defaultCurrency: $('#defaultCurrency').val()
+    }
     $.ajax({
       method: "POST",
-      url: querystring
+      url: "http://localhost:3000/api/signup",
+      body: data
+
     })
   });
- 
-  
 
 </script>
 

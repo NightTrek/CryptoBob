@@ -11,10 +11,10 @@ CREATE TABLE users (
     password VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
     phone VARCHAR(1000) NOT NULL,
-    default_currency VARCHAR(100) NOT NULL,
-    watchlistArray VARCHAR(500) NOT NULL,
-    notificationsArray VARCHAR(500) NOT NULL,
-    exchangeSecret VARCHAR(100) NOT NULL,
+    default_currency VARCHAR(100),
+    watchlistArray VARCHAR(500),
+    notificationsArray VARCHAR(500),
+    exchangeSecret VARCHAR(100),
     PRIMARY KEY (id)
 );
 
