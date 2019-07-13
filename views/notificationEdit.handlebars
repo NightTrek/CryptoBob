@@ -1,1 +1,131 @@
-<h1>EDIT NOTIFICATIONS</h1>
+{{!-- <h1>EDIT NOTIFICATIONS</h1> --}}
+
+<nav>
+    <!-- navbar content here  -->
+    <ul id="slide-out" class="sidenav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img
+                        src="https://www.autoassistant.it/directory/wp-content/uploads/2019/06/pexels-photo-949587.jpeg">
+                </div>
+                <!-- img of user goes here, putting a default img for now -->
+                <a href="#!"><img class="circle hoverable"
+                        src="https://theme.zdassets.com/theme_assets/2313093/ea2a7a1391be00c66d006290df37177233bd1467.png"
+                        id="image"></a>
+                <a class="subheader" href="#!"><span class="white-text name" id="name">User's Name</span></a>
+                <a class="subheader" href="#!"><span class="white-text email" id="email">User's Email</span></a>
+            </div>
+        </li>
+        <li><a href="/account" class="waves-effect"><i class="material-icons">trending_up</i>Watchlist</a></li>
+        <li><a href="#!" class="waves-effect"><i class="material-icons">insert_chart</i>Portfolio</a></li>
+        <li><a href="#!" class="waves-effect"><i class="material-icons">chrome_reader_mode</i>News</a></li>
+        <li><a href="#!" class="waves-effect"><i class="material-icons">error</i>Notifications</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader" href="#!"><i class="material-icons">autorenew</i>Auto Trading (Unavailable)</a></li>
+    </ul>
+    <div class="hoverable">
+        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+<div class="row">
+    <div class="col s12">
+        <div class="card" id="signupCard">
+            <div class="card-content #b2dfdb teal lighten-4">
+                <span class="card-title">Create/Edit a notification</span>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="defaultCurrency" type="text" pattern="[A-Z]{3}" class="validate">
+                                <label class="active" for="defaultCurrency">Default Currency (USD, BTC, ETH)</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="secondaryCurrency" type="text" pattern="[A-Z]{3-5}" class="validate">
+                                <label class="active" for="defaultCurrency">Secondary Currency (Ticker)</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label class="active" for="percentChange" id="percentChange">Percent Change</label>
+                                <div id="test-slider">
+                                    <form action="#">
+                                        <p class="range-field">
+                                            <input type="range" id="test5" min="-100" max="100" />
+                                        </p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="lowPrice" type="number" class="validate">
+                                <label class="active" for="minPrice">Min Value</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="maxPrice" type="number" class="validate">
+                                <label class="active" for="maxPrice">Max Value</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button id="submitNotification" class="btn waves-effect waves-light" type="submit"
+                                    name="action">Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- {{!-- end of content --}} -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, options);
+    });
+    // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+    // var collapsibleElem = document.querySelector('.collapsible');
+    // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+    // Or with jQuery
+    $(document).ready(function () {
+        $('.sidenav').sidenav();
+    });
+
+
+    // {{!-- slider --}}
+
+
+    var slider = document.getElementById('test-slider');
+    noUiSlider.create(slider, {
+        start: [20, 80],
+        connect: true,
+        step: 1,
+        orientation: 'horizontal', // 'horizontal' or 'vertical'
+        range: {
+            'min': 0,
+            'max': 100
+        },
+        format: wNumb({
+            decimals: 0
+        })
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
