@@ -131,12 +131,6 @@ module.exports = {
         }
     },
 
-
-            } catch (err) {
-                console.log("error inserting data to table");
-                throw err;
-            }
-        },
         
         // new user shit
         insertNewUsers: async function(con, tableOneCol, InsertObject) {
