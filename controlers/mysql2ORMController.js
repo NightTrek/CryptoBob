@@ -17,6 +17,7 @@ module.exports = {
                 queueLimit: 0
             });
         } catch (err) {
+            console.log('error unable to connect to sqlDB');
             throw err;
         }
 
