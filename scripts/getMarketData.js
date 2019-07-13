@@ -2,6 +2,7 @@
 const BT = require("../controlers/BittrexController");
 const sql = require('../controlers/mysql2ORMController');
 const moment = require('moment');
+const key = require('../config/keys');
 
 // methods
 module.exports = {
