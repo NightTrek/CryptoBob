@@ -3,10 +3,10 @@ const mysql = require('mysql2/promise');
 
 module.exports = {
     db: "cryptobob_db",
-    GetConnection: async function(db = this.db, pass = "password") {
+    GetConnection: async function(db = this.db, pass = "password", host="localhost") {
         try {
             return await mysql.createPool({
-                host: "localhost",
+                host: host,
                 // Your port; if not 3306
                 port: 3306,
                 user: "root",
