@@ -20,6 +20,7 @@ window.onload = function() {
             title: {
                 text: "Multi-Series Line Chart"
             },
+            // testing the chart 
             data: [{
                     type: "line",
                     dataPoints: [
