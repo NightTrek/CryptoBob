@@ -119,16 +119,38 @@
     $('#loginCard').show()
   });
 
-  $(document).on('click', '#submitLog', (event) => {
+  $(document).on('click', '#submitLog', async (event) => {
     event.preventDefault()
-    let userEmail = $('#usernameInput').val()
-    console.log(userEmail)
-    let passwordInput = $('#passwordInput').val()
-    console.log(passwordInput)
+    console.log('login attempt');
+    sessionStorage.setItem('userName', $('#usernameInput').val());
+    sessionStorage.setItem('pass', $('#passwordInput').val());
+    let data = {
+      userName:$('#usernameInput').val(),
+      pass:$('#passwordInput').val()
+    }
+    try{
+     let response = await $.ajax({
+      method: "POST",
+      url: "http://localhost:3000/api/login",
+      data:data
+
+    });
+    
+    if(response.code === 1){
+      console.log("valid")
+      $(location).attr('href',"http://localhost:3000/account");
+    } else{
+      alert("wrong userName Or password");
+    }
+    }
+    catch(err){
+      console.log('error 500 no response from server')
+      throw err;
+    }
 
   });
 
-  $(document).on('click', '#submitSign', (event) => {
+  $(document).on('click', '#submitSign', async (event) => {
     event.preventDefault()
     let data = {
       firstName: $('#first_name').val(),
@@ -139,12 +161,21 @@
       phoneNumber: $('#number').val(),
       defaultCurrency: $('#defaultCurrency').val()
     }
-    $.ajax({
+    sessionStorage.setItem('userName', data.userName);
+    sessionStorage.setItem('pass', data.passWord);
+    console.log(data)
+    let response = await $.ajax({
       method: "POST",
       url: "http://localhost:3000/api/signup",
-      body: data
+      data:data
 
-    })
+    });
+    console.log(response);
+    if(response.code === "0"){
+      alert(response.res)
+    } else{
+      $(location).attr('href',"http://localhost:3000/account");
+    }
   });
 
 
