@@ -42,6 +42,7 @@ router.post("/api/marketDataforToken", async function (req, res) {
 
 //entery page for the app/ login page
 router.get("/api/", function (req, res) {
+    console.log("")
     res.json("testing ")
 });
 
