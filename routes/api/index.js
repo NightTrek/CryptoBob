@@ -1,80 +1,80 @@
 const express = require('express');
 const router = express.Router();
 const sql = require('../../controlers/mysql2ORMController')
+const bcrypt = require('bcrypt');
 const loginkeys = require('../../config/loginKeys');
 
 
 
 // /api/
-
+//req.param.password, passwordHash
 
 router.post("/login", async function(req, res) {
+    console.log("sign in")
+    console.log(req.body);
     try {
-        let connection = await sql.GetConnection();
-        let passwordHash = await sql.selectSomethingWhere(connection, password, users, userName, req.body.data.userName);
-        let validateLogin = await bcrypt.compare(req.body.data.password, passwordHash);
+        let connection = await sql.GetConnection();  // SELECT password FROM users WHERE userName = "dsteigman";
+        let passwordHash = await connection.query(`SELECT password FROM users WHERE userName = '${req.body.userName}';`)
+        let plainTextPassword = `${req.body.pass}`;
+        let validateLogin = await bcrypt.compare(plainTextPassword, passwordHash[0][0].password);
+        connection.end();
         if (validateLogin) {
-            res.send(true)
+            console.log("validLogin")
+            let response = {code:1, res:"valid login attempt"};
+            res.json(response)
         } else {
-            res.send(false)
+            console.log('invalide Login')
+            let response = {code:0, res:"invalid login attempt"};
+            res.json(response)
         }
     } catch (err) {
         throw err
-
+//
     }
 });
 
 router.post("/signup", async function(req, res) {
+    console.log("signUp");
+    //console.log(req.body); 
     try {
-        let hash = await bcrypt.hash(req.body.data.password, 10);
+        let con = await sql.GetConnection();
+        //check if user is in the db
+        let user = await sql.selectWhere(con, "users", "userName", req.body.userName);
+        if(user.length === 0){
+            //hash their password
+        let hash = await bcrypt.hash(req.body.passWord, 10);
+        console.log(hash);
         let signUpData = {
-            userName: req.body.data.userName,
+            userName: req.body.userName,
             password: hash,
-            email: req.body.data.eMail,
-            phone: req.body.data.phone,
-            default_currency: req.body.data.default_currency,
+            email: req.body.eMail,
+            phone: req.body.phoneNumber,
+            default_currency: req.body.defaultCurrency,
             watchlistArray: null,
             notificationArray: null,
             exchangeSecret: null,
 
         };
-        let con = await sql.GetConnection();
+        //load new user into DB with hashed password
         let addToDB = await sql.insertNewUsers(con, "users", signUpData)
-
-        let loginHash = await bcrypt.hash(signUpData.password + signUpData.userName, 10);
-        loginkeys.key.push(loginHash);
-        res.send(loginHash)
+        console.log(addToDB);
+        con.end();
+        res.render("DisplayAll");
+    } else {
+        console.log("user already exists")
+        con.end();
+        let response = {code:"0",res:"UserName Already Taken Login or request a new password"};
+        res.json(response);
+    }
     } catch (err) {
-
+        throw err;
     }
 
-
+});
 
 
     router.get("/", function(req, res) {
-
-        // connection.query("SELECT * FROM mining;", function(err, data) {
-        //   if (err) { 
-        //     return res.status(500).end();
-        //   }
-
-        //   res.render("index", { quotes: data });
-        // });
-
         res.send("/api/")
-    });
-
-    router.post("/login", function(req, res) {
-        let loginData = req.body;
-
-        res.send("/api/")
-    });
-
-    router.post("/signup", function(req, res) {
-        let loginData = req.body;
-
-        res.send("/api/")
-
     });
 
 
@@ -91,7 +91,7 @@ router.post("/signup", async function(req, res) {
             return res.status(500).end();
         }
     });
-});
+
 
 
 module.exports = router;
