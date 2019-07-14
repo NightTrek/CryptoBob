@@ -6,7 +6,7 @@ const md = require("../scripts/getMarketData");
 var app = express();
 
 // so it will work in heroku
-var PORT = process.env.PORT || 3001;
+var PORT = process.env.PORT || 80;
 
 var exphbs = require("express-handlebars");
 
@@ -23,7 +23,7 @@ app.use(routes);
 
 //server starting section
 //-==============================================================
-app.listen(PORT, "35.203.148.145", function() {
+app.listen(PORT, "10.138.0.2", function() {
     console.log("App listening on PORT " + PORT);
 });
 
