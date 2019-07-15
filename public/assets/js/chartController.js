@@ -1,5 +1,5 @@
 const rp = require('request-promise');
-const convertMarketData = require('../scripts/convertMarketData.js');
+const convertMarketData = require('../../../scripts/convertMarketData.js');
 
 module.exports = {
     getChartData: async function(ticker, market) {
@@ -30,6 +30,5 @@ module.exports = {
         catch (err) {
             throw err;
         }
-
     }
 };
