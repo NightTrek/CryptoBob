@@ -1,5 +1,6 @@
 const express = require('express');
-const sql = require('../../controlers/mysql2ORMController')
+const sql = require('../../controlers/mysql2ORMController');
+const dsc = require('../../controlers/DataServiceController');
 const router = express.Router();
 
 
@@ -14,22 +15,23 @@ router.get("/", function(req, res) {
 
 //display the watchlist page broken
 router.get("/watchlist/:id", async function(req, res) {
-    let watchlistData = [];
+    try{
     let connection = await sql.GetConnection();
     let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.params.id);
-    console.log(watchlistArray[0].watchlistArray);
-    for(key in watchlistArray[0].watchlistArray){
-        const requestOptions = {
-            method: 'GET',
-            uri: 'https://api.bittrex.com/api/v1.1/public/getcurrencies'
-        };
-
-        const response = await rp(requestOptions)
+    let array = watchlistArray[0].watchlistArray;
+    if(watchlistArray[0].watchlistArray.length===0){
+        array = ["BTC","XRP", "ETH","BCH"];
     }
+    console.log(array);
     connection.end();
-    //lookup in mysql for the user req.body.id and return there watchlist
-
-    res.send("watchlist", { news: data });
+    let res = await dsc.buildWatchListDataArray(array,'usd');
+    console.log(res);
+    res.send("watchlist", res);
+    }
+    catch(err){
+        console.log(err);
+        throw err;
+    }
 });
 
 //display all current notifications 

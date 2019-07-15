@@ -1,3 +1,14 @@
 const dsc = require('../controlers/DataServiceController');
 
-dsc.buildWatchListDataArray(["BTC","XRP", "ETH", "IOTA", "TRX","BCH"],'usd');
+
+let main = async function(){
+  
+    try{
+        //   let res = await dsc.getMarketData("BTC","usd");
+    let res = await dsc.buildWatchListDataArray(["BTC","XRP", "ETH","BCH"],'usd');
+    console.log(res);
+    }catch(err){
+        throw err;
+    }
+}
+main();
