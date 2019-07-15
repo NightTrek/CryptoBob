@@ -2,8 +2,6 @@ const mysql = require("mysql2/promise");
 const sql = require('../controlers/mysql2ORMController');
 
 async function main() {
-
-
     const connection = await sql.GetConnection();
     // mysql.createConnection({
     //     host: "localhost",
@@ -51,7 +49,6 @@ async function main() {
             })
         })
         .catch(function (error) { console.log(error) })
-
 }
 
 main()
