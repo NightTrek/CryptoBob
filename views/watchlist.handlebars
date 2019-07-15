@@ -15,7 +15,7 @@
             </div>
         </li>
     <li><a href="/account" class="waves-effect"><i class="material-icons">trending_up</i>Watchlist</a></li>
-    <li><a href="/portfolio" class="waves-effect"><i class="material-icons">insert_chart</i>Portfolio</a></li>
+    {{!-- <li><a href="/portfolio" class="waves-effect"><i class="material-icons">insert_chart</i>Portfolio</a></li> --}}
     <li><a href="/account/news" class="waves-effect"><i class="material-icons">chrome_reader_mode</i>News</a></li>
     <li><a href="/account/notifications" class="waves-effect"><i class="material-icons">error</i>Notifications</a></li>
         <li>
@@ -48,12 +48,12 @@
             {{#each watchlistItem}}
             <div class="row">
                 <div class="col s2">
-                    <h3>{{this.currency}}</h3>
+                    <h3>{{this.ticker}}</h3>
                 </div>
-                <div class="col s4"><h3>{{this.currencyLong}}</h3></div>
-                <div class="col s2"><h3>{{this.price}}</h3></div>
-                <div class="col s2"><h3>{{this.Volume}}</h3></div>
-                <div class="col s2"><h3>{{this.dayAvg}}</h3></div>
+                <div class="col s4"><h3>==============</h3></div>
+                <div class="col s2"><h3>{{this.currentPrice}}</h3></div>
+                <div class="col s2"><h3>{{this.dayVolume}}</h3></div>
+                <div class="col s2"><h3>{{this.dayChange}}</h3></div>
             </div>
 
             {{/each}}
