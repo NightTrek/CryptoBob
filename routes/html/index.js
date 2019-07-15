@@ -14,9 +14,18 @@ router.get("/", function(req, res) {
 
 //display the watchlist page broken
 router.get("/watchlist:id", async function(req, res) {
+    let watchlistData = [];
     let connection = await sql.GetConnection();
     let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.body.id);
     console.log(watchlistArray[0].watchlistArray);
+    for(key in watchlistArray[0].watchlistArray){
+        const requestOptions = {
+            method: 'GET',
+            uri: 'https://api.bittrex.com/api/v1.1/public/getcurrencies'
+        };
+
+        const response = await rp(requestOptions)
+    }
     connection.end();
     //lookup in mysql for the user req.body.id and return there watchlist
 

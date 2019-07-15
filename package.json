@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/ToneDef00/CryptoArcade#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "bcrypt": "^3.0.6",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
@@ -29,7 +30,8 @@
     "mysql2": "^1.6.5",
     "node-gyp": "^5.0.2",
     "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "request-promise": "^4.2.4",
+    "winston": "^3.2.1"
   },
   "devDependencies": {},
   "description": ""

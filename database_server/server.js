@@ -1,5 +1,14 @@
 const express = require('express');
 const md = require("../scripts/getMarketData");
+const winston = require("winston");
+
+const logger = winston.createLogger({
+    level:"info",
+    transports: [
+      new winston.transports.Console(),
+      new winston.transports.File({ filename: 'combined.log' })
+    ]
+  });
 
 // Sets up the Express App
 // =============================================================
@@ -32,6 +41,11 @@ let test = setInterval(async function(){
     let res = await md.storeLiveCurrencyData();
     }
     catch(err){
+        logger.log({
+            level: 'info',
+            message: `ERROR store live currency bittrex failed: ${err}`,
+    
+          }); 
         console.log("Store live currency Function failed ")
         throw err;
     }
