@@ -1,10 +1,47 @@
-<h1>crypto news page</h1>
+<nav>
+    <!-- navbar content here  -->
+    <div class="hoverable">
+        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+        <div class="row">
+            <div class="col s3">
+                <h4>My Account</h4>
+            </div>
+        </div>
+    </div>
+
+    <ul id="slide-out" class="sidenav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img
+                        src="https://www.autoassistant.it/directory/wp-content/uploads/2019/06/pexels-photo-949587.jpeg">
+                </div>
+                <!-- img of user goes here, putting a default img for now -->
+                <a href="#!"><img class="circle hoverable"
+                        src="https://theme.zdassets.com/theme_assets/2313093/ea2a7a1391be00c66d006290df37177233bd1467.png"
+                        id="image"></a>
+                <a class="subheader" href="#!"><span class="white-text name" id="name">User's Name</span></a>
+                <a class="subheader" href="#!"><span class="white-text email" id="email">User's Email</span></a>
+            </div>
+        </li>
+        <li><a href="/watchlist:id" class="waves-effect"><i class="material-icons">trending_up</i>Watchlist</a></li>
+        <li><a href="/portfolio" class="waves-effect"><i class="material-icons">insert_chart</i>Portfolio</a></li>
+        <li><a href="/account/news" class="waves-effect"><i class="material-icons">chrome_reader_mode</i>News</a></li>
+        <li><a href="/account/notifications" class="waves-effect"><i class="material-icons">error</i>Notifications</a>
+        </li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader" href="#!"><i class="material-icons">autorenew</i>Auto Trading (Unavailable)</a></li>
+    </ul>
+
+</nav>
 
 {{!-- this div is for the cryptocurrency graphs --}}
 <div class="div">
     {{!-- top div --}}
     <div class="row">
-        <div class="col s12">This div is a full row</div>
+        <h2>Cryptocurrency News</h2>
     </div>
     {{!-- row of 3 graphs --}}
     <div class="row">
@@ -12,7 +49,7 @@
         <div class="col s4">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="images/office.jpg">
+                    <img class="activator" src="">
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">Graph #1<i
@@ -30,7 +67,7 @@
         <div class="col s4">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="images/office.jpg">
+                    <img class="activator" src="">
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">Graph #2<i
@@ -63,23 +100,11 @@
             </div>
         </div>
     </div>
-    {{!-- BOTTOM DIV --}}
-    <div class="row">
-        <div class="col s12">This div is a full row</div>
-    </div>
-</div>
 
-<h2>current crypto news</h2>
-{{!-- this div is for the news api --}}
-<div>
-    {{!-- div to dump articles --}}
-    <div class="container">
 
-    </div>
-    {{!-- crpyto news search params div --}}
-    <div class="row">
-        <div class="col s12">This div is a full row</div>
-    </div>
+    <h4>Search Current News</h4>
+    {{!-- this div is for the news api --}}
+
     <div class="container">
 
         {{!-- cryptonews Search Buttons --}}
@@ -92,11 +117,34 @@
         <button class="AllNews">All News</button>
 
         {{!-- cryptonews Articles dump --}}
+
+        <div class="row">
+
+            <div class="card">
+                <div class="card-content">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        {{#each news}}
+                        <div class="col s4 News {{this.category}}">
+                            <a href={{this.url}}>
+                                <h4>{{this.title}}</h4>
+                            </a>
+                            <p>{{this.description}}</p>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+    {{!-- </div>
     <div class="container">
         <div class="row">
             {{#each news}}
-            <div class="col-sm-4 News {{this.category}}">
+            <div class="col s4 News {{this.category}}">
                 <a href={{this.url}}>
                     <h3>{{this.title}}</h3>
                 </a>
@@ -104,43 +152,43 @@
             </div>
             {{/each}}
         </div>
-    </div>
-</div>
+    </div> --}}
 
-{{!-- cryptonews search button functions --}}
-<script>
-    $('.Blockchain').on('click', function () {
-        $('.News').hide()
-        $('.Blockchain').show()
-    });
 
-    $('.Mining').on('click', function () {
-        $('.News').hide()
-        $('.Mining').show()
-    });
+    {{!-- cryptonews search button functions --}}
+    <script>
+        $('.Blockchain').on('click', function () {
+            $('.News').hide()
+            $('.Blockchain').show()
+        });
 
-    $('.ICO').on('click', function () {
-        $('.News').hide()
-        $('.ICO').show()
-    });
+        $('.Mining').on('click', function () {
+            $('.News').hide()
+            $('.Mining').show()
+        });
 
-    $('.Government').on('click', function () {
-        $('.News').hide()
-        $('.Government').show()
-    });
+        $('.ICO').on('click', function () {
+            $('.News').hide()
+            $('.ICO').show()
+        });
 
-    $('.Analysis').on('click', function () {
-        $('.News').hide()
-        $('.Analysis').show()
-    });
+        $('.Government').on('click', function () {
+            $('.News').hide()
+            $('.Government').show()
+        });
 
-    $('.Exchanges').on('click', function () {
-        $('.News').hide()
-        $('.Exchanges').show()
-    });
+        $('.Analysis').on('click', function () {
+            $('.News').hide()
+            $('.Analysis').show()
+        });
 
-    $('.AllNews').on('click', function () {
-        $('.News').hide()
+        $('.Exchanges').on('click', function () {
+            $('.News').hide()
+            $('.Exchanges').show()
+        });
 
-    });
-</script>
+        $('.AllNews').on('click', function () {
+            $('.News').show()
+
+        });
+    </script>
