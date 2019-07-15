@@ -10,7 +10,7 @@ module.exports = {
                 // Your port; if not 3306
                 port: 3306,
                 user: "root",
-                password: pass,
+                password: 'password',
                 database: db,
                 waitForConnections: true,
                 connectionLimit: 10,
@@ -19,7 +19,7 @@ module.exports = {
         } catch (err) {
             throw err;
         }
-
+        console.log('connected as id' + connection.threadId)
     },
 
     selectAllFromTable: async function(con, table) {
