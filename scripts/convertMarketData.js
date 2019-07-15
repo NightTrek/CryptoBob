@@ -13,5 +13,4 @@ module.exports = {
             output.push({ x: marketDataArray[i].unixTimeStamp, y: marketDataArray[i].last })
         }
     }
-
 }
