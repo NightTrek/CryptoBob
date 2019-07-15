@@ -23,7 +23,7 @@ router.post("/api/marketDataforToken", async function (req, res) {
     // console.log(req.body.data.ticker)   
     logger.log({
         level: 'info',
-        message: `REQ MARKET DATA: ${req.header}`,
+        message: `REQ MARKET DATA: ${req.body}`,
 
       }); 
     try{
@@ -44,7 +44,7 @@ router.post("/api/marketDataforToken", async function (req, res) {
                 console.log("ERROR INVALID API KEY")
                 logger.log({
                     level: 'info',
-                    message: `INVALID VALIDATION ATTEMPT: ${req.header}`,
+                    message: `INVALID VALIDATION ATTEMPT: ${req.body}`,
             
                   }); 
                 throw "ERROR INVALID API KEY"
