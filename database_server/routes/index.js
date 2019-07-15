@@ -23,7 +23,7 @@ router.post("/api/marketDataforToken", async function (req, res) {
     // console.log(req.body.data.ticker)   
     logger.log({
         level: 'info',
-        message: `REQ MARKET DATA: ${req.body}`,
+        message: `REQ MARKET DATA: FROM:${req.header("Forwarded")}`,
 
       }); 
     try{
@@ -34,9 +34,19 @@ router.post("/api/marketDataforToken", async function (req, res) {
                 let tokenData = await sql.SelectAllAndOrderByTmestamp(connection, md.key[req.body.data.ticker], req.body.data.market );
                 if(tokenData){
                     connection.end();
+                    logger.log({
+                      level: 'info',
+                      message: `SUCCESS found ${req.body.data.ticker} in DB for market: ${req.body.data.market} `,
+              
+                    }); 
                     res.json(tokenData);
                 }
                 }else{
+                  logger.log({
+                    level: 'info',
+                    message: `ERROR 404 data not found in DB: ${req.body.data.ticker} market: ${req.body.data.market} `,
+            
+                  }); 
                     throw "error 404"
                 }
             }
@@ -51,6 +61,11 @@ router.post("/api/marketDataforToken", async function (req, res) {
             }
     }
     catch(err){
+      logger.log({
+        level: 'info',
+        message: `ERROR retriving market data: ${req.body.data.ticker}`,
+
+      }); 
         console.log(err);
 
     }
