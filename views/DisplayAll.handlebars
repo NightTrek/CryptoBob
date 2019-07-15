@@ -248,8 +248,8 @@
       // Or with jQuery
       $(document).ready(function () {
       
-      $("watchlist").attr("href", `/watchlist/${sessionStorage.getItem('userName')}`);
-$("notifications").attr("href", `/account/notifications/${sessionStorage.getItem('userName')}`)
+      $("#watchlist").attr("href", `/account/watchlist/${sessionStorage.getItem('userName')}`);
+      $("#notifications").attr("href", `/account/notifications/${sessionStorage.getItem('userName')}`)
 
         $('#userName').text(sessionStorage.getItem('userName'));
         // // for pulling name and email from local storage
