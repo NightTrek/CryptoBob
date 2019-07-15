@@ -1,8 +1,12 @@
 <nav>
   <!-- navbar content here  -->
-    <div class="hoverable">
+  <div class="hoverable">
     <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-    <div class="row"><div class="col s3"><h4>My Account</h4> </div></div>
+    <div class="row">
+      <div class="col s3">
+        <h4>My Account</h4>
+      </div>
+    </div>
   </div>
 
   <ul id="slide-out" class="sidenav">
@@ -16,7 +20,7 @@
             src="https://theme.zdassets.com/theme_assets/2313093/ea2a7a1391be00c66d006290df37177233bd1467.png"
             id="image"></a>
         <a class="subheader" href="#!"><span class="white-text name" id="userName">User's Name</span></a>
-        
+
       </div>
     </li>
     <li><a href="/watchlist/:id" class="waves-effect" id="watchlist"><i class="material-icons">trending_up</i>Watchlist</a></li>
@@ -32,59 +36,230 @@
 </nav>
 
 
+
 {{!-- start of content  --}}
 {{!-- graphs --}}
 <div class="container">
-  <div class="row"><div class="center-align"> <h1>Graphs</h1> </div></div>
+  <div class="row">
+    <div class="center-align">
+      <h1>Graphs</h1>
+    </div>
+  </div>
   <div class="row">
     <div class="col s4 card teal">
       <div id="chartContainer1" style="height: 300px; width: 100%;">ETH</div>
     </div>
     <div class="col s4 card teal">
-      <div id="chartContainer2" style="height: 300px; width: 100%;">USD</div></div>
-    <div class="col s4 card teal">
-      <div id="chartContainer3" style="height: 300px; width: 100%;">BTC</div></div>
-  </div>
-  <div class="row"></div>
-
-{{!-- NEWs --}}
-<div class="container" id="newsContainer">
-    <div class="row"><div class="col s12 center-align"> <h1>News</h1> </div></div>
-  <div class="row">
-    <div class="col s4 card">
-      <div id="newsContainer1" style="height: 300px; width: 100%;">News 1</div>
+      <div id="chartContainer2" style="height: 300px; width: 100%;">XRP</div>
     </div>
-    <div class="col s4 card">
-      <div id="newsContainer2" style="height: 300px; width: 100%;">News 2</div></div>
-    <div class="col s4 card">
-      <div id="newsContainer3" style="height: 300px; width: 100%;">News 3</div></div>
+    <div class="col s4 card teal">
+      <div id="chartContainer3" style="height: 300px; width: 100%;">BTC</div>
+    </div>
   </div>
   <div class="row"></div>
 
-</div>
+
+  {{!-- NEWs --}}
+  <div class="container" id="newsContainer">
+    <div class="row">
+      <div class="col s12 center-align">
+        <h1>News</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s4 card">
+        <div id="newsContainer1" style="height: 300px; width: 100%;">News 1</div>
+      </div>
+      <div class="col s4 card">
+        <div id="newsContainer2" style="height: 300px; width: 100%;">News 2</div>
+      </div>
+      <div class="col s4 card">
+        <div id="newsContainer3" style="height: 300px; width: 100%;">News 3</div>
+      </div>
+    </div>
+    <div class="row"></div>
+
+  </div>
 
 
-{{!-- end of content  --}}
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
-  });
-  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
-  // var collapsibleElem = document.querySelector('.collapsible');
-  // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
-  // Or with jQuery
-  $(document).ready(function () {
-$("watchlist").attr("href", `/watchlist/${sessionStorage.getItem('userName')}`);
+  {{!-- end of content  --}}
+  {{!-- <script src="/assets/js/chartstest.js"></script> --}}
+
+  <script>
+    
+      console.log("onload")
+      $.ajax({
+        url: "/api/convertmarketdata"
+      }).then(function (data) {
+       // console.log(data)
+        
+       // console.log(data.result);
+        let output = [];
+        for (let i = data.result.length; i >= 0; i--) {
+          if(i % 10 === 0){
+            output.push({ x: parseFloat(data.result[i].unixTimestamp), y: parseFloat(data.result[i].last) })
+          } 
+          
+        } 
+// console.log(output);
+// console.log(output[0]);
+        // set up options for display
+      var chartdata = {
+        animationEnabled: true,
+        title: {
+          text: "ETH"
+        },
+        axisX: {
+          valueFormatString: "##########"
+        },
+        axisY: {
+          title: "Last Price",
+          prefix: "$",
+          includeZero: false
+        },
+        data: [{
+          yValueFormatString: "$#.###",
+          xValueFormatString: "##########",
+          type: "spline",
+          dataPoints: output,
+        }]
+        };
+        console.log(chartdata.data[0].dataPoints);
+        // console.log(chartdata.data[0);
+        
+        $("#chartContainer1").CanvasJSChart(chartdata);
+      })
+      
+      $.ajax({
+        url: "/api/convertmarketdatabtc"
+      }).then(function (data) {
+       // console.log(data)
+        
+       // console.log(data.result);
+        let output = [];
+        for (let i = data.result.length; i >= 0; i--) {
+          if(i % 10 === 0){
+            output.push({ x: parseFloat(data.result[i].unixTimestamp), y: parseFloat(data.result[i].last) })
+          }
+        } 
+// console.log(output);
+// console.log(output[0]);
+        // set up options for display
+      var chartdata = {
+        animationEnabled: true,
+        title: {
+          text: "BTC"
+        },
+        axisX: {
+          valueFormatString: "##########"
+        },
+        axisY: {
+          title: "Last Price",
+          prefix: "$",
+          includeZero: false
+        },
+        data: [{
+          yValueFormatString: "$#.###",
+          xValueFormatString: "##########",
+          type: "spline",
+          dataPoints: output,
+        }]
+        };
+        console.log(chartdata.data[0].dataPoints);
+        // console.log(chartdata.data[0);
+        
+        $("#chartContainer3").CanvasJSChart(chartdata);
+      })
+
+
+// XRP CALL
+            $.ajax({
+        url: "/api/convertmarketdataxrp"
+      }).then(function (data) {
+       // console.log(data)
+        
+       // console.log(data.result);
+        let output = [];
+        for (let i = data.result.length; i >= 0; i--) {
+          if(i % 10 === 0){
+            output.push({ x: parseFloat(data.result[i].unixTimestamp), y: parseFloat(data.result[i].last) })
+          }
+        } 
+// console.log(output);
+// console.log(output[0]);
+        // set up options for display
+      var chartdata = {
+        animationEnabled: true,
+        title: {
+          text: "XRP"
+        },
+        axisX: {
+          valueFormatString: "##########"
+        },
+        axisY: {
+          title: "Last Price",
+          prefix: "$",
+          includeZero: false
+        },
+        data: [{
+          yValueFormatString: "$#.###",
+          xValueFormatString: "##########",
+          type: "spline",
+          dataPoints: output,
+        }]
+        };
+        console.log(chartdata.data[0].dataPoints);
+        // console.log(chartdata.data[0);
+        
+        $("#chartContainer2").CanvasJSChart(chartdata);
+      })
+/*
+      
+          dataPoints: load.data
+           [
+            { x: new Date(2017, 0), y: 25060 },
+            { x: new Date(2017, 1), y: 27980 },
+            { x: new Date(2017, 2), y: 33800 },
+            { x: new Date(2017, 3), y: 49400 },
+            { x: new Date(2017, 4), y: 40260 },
+            { x: new Date(2017, 5), y: 33900 },
+            { x: new Date(2017, 6), y: 48000 },
+            { x: new Date(2017, 7), y: 31500 },
+            { x: new Date(2017, 8), y: 32300 },
+            { x: new Date(2017, 9), y: 42000 },
+            { x: new Date(2017, 10), y: 52160 },
+            { x: new Date(2017, 11), y: 49400 }
+          ] 
+        }]
+      };
+      */
+//}
+  </script>
+
+  <script>
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.sidenav');
+        // var instances = M.Sidenav.init(elems, options);
+      });
+      // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+      // var collapsibleElem = document.querySelector('.collapsible');
+      // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+      // Or with jQuery
+      $(document).ready(function () {
+      
+      $("watchlist").attr("href", `/watchlist/${sessionStorage.getItem('userName')}`);
 $("notifications").attr("href", `/account/notifications/${sessionStorage.getItem('userName')}`)
-    $('#userName').text(sessionStorage.getItem('userName'));
-    // // for pulling name and email from local storage
-// name = localStorage.getItem("name");
-// $('#name').text(name);
-// email = localStorage.getItem("email");
-// $('#email').text(email);
-    console.log(sessionStorage.getItem('userName'))
-    $('.sidenav').sidenav();
-  });
 
-</script>
+        $('#userName').text(sessionStorage.getItem('userName'));
+        // // for pulling name and email from local storage
+        // name = localStorage.getItem("name");
+        // $('#name').text(name);
+        // email = localStorage.getItem("email");
+        // $('#email').text(email);
+        console.log(sessionStorage.getItem('userName'))
+        $('.sidenav').sidenav();
+      });
+
+  </script>
+

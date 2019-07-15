@@ -7,13 +7,14 @@ const router = express.Router();
 // /account/
 
 // display home page navebar page
-router.get("/", function(req, res) {
+router.get("/", function (req, res) {
     res.render("DisplayAll")
 });
 
 
 
 //display the watchlist page broken
+
 router.get("/watchlist/:id", async function(req, res) {
     try{
     let connection = await sql.GetConnection();
@@ -21,6 +22,7 @@ router.get("/watchlist/:id", async function(req, res) {
     let array = watchlistArray[0].watchlistArray;
     if(watchlistArray[0].watchlistArray.length===0){
         array = ["BTC","XRP", "ETH","BCH"];
+
     }
     console.log(array);
     connection.end();
@@ -35,6 +37,7 @@ router.get("/watchlist/:id", async function(req, res) {
 });
 
 //display all current notifications 
+
 router.get("/notifications/:id", async function(req, res) {
     let connection = await sql.GetConnection();
     let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.body.id);
@@ -47,18 +50,47 @@ router.get("/notifications/:id", async function(req, res) {
 
 
 //add notification page 
-router.get("/addnotification", function(req, res) {
+router.get("/addnotification", function (req, res) {
     res.render("notificationEdit") //
 });
 
 //notification page for testing
-router.get("/notifications", function(req, res) {
+router.get("/notifications", function (req, res) {
     res.render("notifications") //
 });
 
 //display all current news 
-router.get("/news", function(req, res) {
-    res.render("news")
+router.get("/news", async function (req, res) {
+    const connection = await sql.GetConnection();
+
+    connection.query("SELECT * FROM cryptoNews LIMIT 12", function (err, news) {
+        if (err) {
+            throw err
+            return
+        }
+        console.log(news)
+        res.render("news", { news: news })
+    })
+    // const results = await sql.selectAllFromTable(connection, "cryptoNews");
+    // console.log(results)
+    // res.render("news", { news: results })
+});
+
+// limited news router
+router.get("/limitednews", async function (req, res) {
+    const connection = await sql.GetConnection();
+
+    connection.query("SELECT * FROM cryptoNews LIMIT 3", function (err, news) {
+        if (err) {
+            throw err
+            return
+        }
+        console.log(news)
+        res.render("news", { news: news })
+    })
+    // const results = await sql.selectAllFromTable(connection, "cryptoNews");
+    // console.log(results)
+    // res.render("news", { news: results })
 });
 
 module.exports = router;

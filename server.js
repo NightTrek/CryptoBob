@@ -16,6 +16,7 @@ app.set("view engine", "handlebars");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"))
 
 //link too the routing folder with all the routes.
 const routes = require('./routes')
@@ -23,9 +24,7 @@ app.use(routes);
 
 //server starting section
 //-==============================================================
-app.listen(PORT, function () {
+app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
 });
 //
-
-
