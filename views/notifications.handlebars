@@ -18,8 +18,8 @@
                 <a href="#!"><img class="circle hoverable"
                         src="https://theme.zdassets.com/theme_assets/2313093/ea2a7a1391be00c66d006290df37177233bd1467.png"
                         id="image"></a>
-                <a class="subheader" href="#!"><span class="white-text name" id="name">User's Name</span></a>
-                <a class="subheader" href="#!"><span class="white-text email" id="email">User's Email</span></a>
+                <a class="subheader" href="#!"><span class="white-text name" id="userName">User's Name</span></a>
+                {{!-- <a class="subheader" href="#!"><span class="white-text email" id="email">User's Email</span></a> --}}
             </div>
         </li>
     <li><a href="/account" class="waves-effect"><i class="material-icons">trending_up</i>Watchlist</a></li>
@@ -92,6 +92,9 @@
     // Or with jQuery
     $(document).ready(function () {
         $('.sidenav').sidenav();
+
+        $('#userName').text(sessionStorage.getItem('userName'));
+
     });
 </script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"

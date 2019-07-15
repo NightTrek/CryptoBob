@@ -13,10 +13,11 @@ router.get("/", function (req, res) {
 
 
 //display the watchlist page broken
-router.get("/watchlist:id", async function (req, res) {
+
+router.get("/watchlist/:id", async function(req, res) {
     let watchlistData = [];
     let connection = await sql.GetConnection();
-    let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.body.id);
+    let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.params.id);
     console.log(watchlistArray[0].watchlistArray);
     for (key in watchlistArray[0].watchlistArray) {
         const requestOptions = {
@@ -33,7 +34,8 @@ router.get("/watchlist:id", async function (req, res) {
 });
 
 //display all current notifications 
-router.get("/notifications:id", async function (req, res) {
+
+router.get("/notifications/:id", async function(req, res) {
     let connection = await sql.GetConnection();
     let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.body.id);
     console.log(watchlistArray[0].watchlistArray);

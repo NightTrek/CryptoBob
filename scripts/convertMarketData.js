@@ -2,9 +2,6 @@
 const BT = require("../controlers/BittrexController");
 const sql = require('../controlers/mysql2ORMController');
 const md = require('./getMarketData');
-const moment = require('moment');
-// invoke moment
-moment.format();
 
 module.exports = {
     convertRecentMarketDataIntoGraph: async function(marketDataArray) {
@@ -13,5 +10,4 @@ module.exports = {
             output.push({ x: marketDataArray[i].unixTimeStamp, y: marketDataArray[i].last })
         }
     }
-
 }
