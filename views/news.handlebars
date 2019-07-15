@@ -102,7 +102,7 @@
     </div>
 
 
-    <h4>Search Cryptocurrency News</h4>
+    <h4>Search Current News</h4>
     {{!-- this div is for the news api --}}
 
     <div class="container">
@@ -117,7 +117,30 @@
         <button class="AllNews">All News</button>
 
         {{!-- cryptonews Articles dump --}}
+
+        <div class="row">
+
+            <div class="card">
+                <div class="card-content">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        {{#each news}}
+                        <div class="col s4 News {{this.category}}">
+                            <a href={{this.url}}>
+                                <h4>{{this.title}}</h4>
+                            </a>
+                            <p>{{this.description}}</p>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+    {{!-- </div>
     <div class="container">
         <div class="row">
             {{#each news}}
@@ -129,7 +152,7 @@
             </div>
             {{/each}}
         </div>
-    </div>
+    </div> --}}
 
 
     {{!-- cryptonews search button functions --}}
