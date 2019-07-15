@@ -20,6 +20,7 @@ CREATE TABLE users (
 
 CREATE TABLE notifications (
     id INTEGER AUTO_INCREMENT,
+    userId VARCHAR(25) NOT NULL,
     data VARCHAR(1000) NOT NULL,
     PRIMARY KEY (id)
 )

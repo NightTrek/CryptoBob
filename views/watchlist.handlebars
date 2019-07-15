@@ -11,14 +11,13 @@
                 <a href="#!"><img class="circle hoverable"
                         src="https://theme.zdassets.com/theme_assets/2313093/ea2a7a1391be00c66d006290df37177233bd1467.png"
                         id="image"></a>
-                <a class="subheader" href="#!"><span class="white-text name" id="name">User's Name</span></a>
-                <a class="subheader" href="#!"><span class="white-text email" id="email">User's Email</span></a>
+                <a class="subheader" href="#!"><span class="white-text name" id="userName">User's Name</span></a>
             </div>
         </li>
-        <li><a href="#!" class="waves-effect"><i class="material-icons">trending_up</i>Watchlist</a></li>
-        <li><a href="#!" class="waves-effect"><i class="material-icons">insert_chart</i>Portfolio</a></li>
-        <li><a href="#!" class="waves-effect"><i class="material-icons">chrome_reader_mode</i>News</a></li>
-        <li><a href="#!" class="waves-effect"><i class="material-icons">error</i>Notifications</a></li>
+    <li><a href="/account" class="waves-effect"><i class="material-icons">trending_up</i>Watchlist</a></li>
+    <li><a href="/portfolio" class="waves-effect"><i class="material-icons">insert_chart</i>Portfolio</a></li>
+    <li><a href="/account/news" class="waves-effect"><i class="material-icons">chrome_reader_mode</i>News</a></li>
+    <li><a href="/account/notifications" class="waves-effect"><i class="material-icons">error</i>Notifications</a></li>
         <li>
             <div class="divider"></div>
         </li>
@@ -53,7 +52,7 @@
                 </div>
                 <div class="col s4"><h3>{{this.currencyLong}}</h3></div>
                 <div class="col s2"><h3>{{this.price}}</h3></div>
-                <div class="col s2"><h3>{{this.sixHourAvg}}</h3></div>
+                <div class="col s2"><h3>{{this.Volume}}</h3></div>
                 <div class="col s2"><h3>{{this.dayAvg}}</h3></div>
             </div>
 
@@ -76,6 +75,9 @@
     // Or with jQuery
     $(document).ready(function () {
         $('.sidenav').sidenav();
+
+        $('#userName').text(sessionStorage.getItem('userName'));
+
     });
 
 </script>
