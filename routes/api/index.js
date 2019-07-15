@@ -129,4 +129,58 @@ router.get('/convertmarketdata', async function(req, res) {
 
 })
 
+router.get('/convertmarketdatabtc', async function(req, res) {
+    let result = ""
+    try {
+        result = await axios({
+            method: 'post',
+            url: 'http://35.203.148.145/api/marketDataforToken',
+            data: {
+                data: {
+                    "ticker": 'BTC',
+                    "market": 'usd',
+                    "key": "bK9uSGlTGfqFHV0O4unF20sLYD82J0iEHyxPW9qL2bIMNpn2OonKfbUe8Q5JHhHq"
+                }
+            },
+            timeout: 3000,
+            responseType: 'json',
+        })
+        res.json({
+            message: "OK",
+            result: result.data,
+        })
+    } catch (err) {
+        res.json({ error: err })
+        return console.log(err)
+    }
+
+})
+
+
+router.get('/convertmarketdataxrp', async function(req, res) {
+    let result = ""
+    try {
+        result = await axios({
+            method: 'post',
+            url: 'http://35.203.148.145/api/marketDataforToken',
+            data: {
+                data: {
+                    "ticker": 'XRP',
+                    "market": 'usd',
+                    "key": "bK9uSGlTGfqFHV0O4unF20sLYD82J0iEHyxPW9qL2bIMNpn2OonKfbUe8Q5JHhHq"
+                }
+            },
+            timeout: 3000,
+            responseType: 'json',
+        })
+        res.json({
+            message: "OK",
+            result: result.data,
+        })
+    } catch (err) {
+        res.json({ error: err })
+        return console.log(err)
+    }
+
+})
 module.exports = router;

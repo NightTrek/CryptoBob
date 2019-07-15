@@ -89,22 +89,26 @@
       $.ajax({
         url: "/api/convertmarketdata"
       }).then(function (data) {
-        console.log(data)
+       // console.log(data)
         
-        console.log(data.result);
+       // console.log(data.result);
         let output = [];
-        for (let i = data.result.length - 1; i >= 0; i--) {
-            output.push({ x: data.result[i].unixTimestamp, y: data.result[i].last })
+        for (let i = data.result.length; i >= 0; i--) {
+          if(i % 10 === 0){
+            output.push({ x: parseFloat(data.result[i].unixTimestamp), y: parseFloat(data.result[i].last) })
+          } 
+          
         } 
-console.log(output);
+// console.log(output);
+// console.log(output[0]);
         // set up options for display
-        var chartdata = {
+      var chartdata = {
         animationEnabled: true,
         title: {
           text: "ETH"
         },
         axisX: {
-          valueFormatString: "MMM"
+          valueFormatString: "##########"
         },
         axisY: {
           title: "Last Price",
@@ -112,15 +116,101 @@ console.log(output);
           includeZero: false
         },
         data: [{
-          yValueFormatString: "$#,###",
-          xValueFormatString: "MMMM",
+          yValueFormatString: "$#.###",
+          xValueFormatString: "##########",
           type: "spline",
           dataPoints: output,
         }]
         };
+        console.log(chartdata.data[0].dataPoints);
+        // console.log(chartdata.data[0);
+        
         $("#chartContainer1").CanvasJSChart(chartdata);
       })
       
+      $.ajax({
+        url: "/api/convertmarketdatabtc"
+      }).then(function (data) {
+       // console.log(data)
+        
+       // console.log(data.result);
+        let output = [];
+        for (let i = data.result.length; i >= 0; i--) {
+          if(i % 10 === 0){
+            output.push({ x: parseFloat(data.result[i].unixTimestamp), y: parseFloat(data.result[i].last) })
+          }
+        } 
+// console.log(output);
+// console.log(output[0]);
+        // set up options for display
+      var chartdata = {
+        animationEnabled: true,
+        title: {
+          text: "BTC"
+        },
+        axisX: {
+          valueFormatString: "##########"
+        },
+        axisY: {
+          title: "Last Price",
+          prefix: "$",
+          includeZero: false
+        },
+        data: [{
+          yValueFormatString: "$#.###",
+          xValueFormatString: "##########",
+          type: "spline",
+          dataPoints: output,
+        }]
+        };
+        console.log(chartdata.data[0].dataPoints);
+        // console.log(chartdata.data[0);
+        
+        $("#chartContainer3").CanvasJSChart(chartdata);
+      })
+
+
+// XRP CALL
+            $.ajax({
+        url: "/api/convertmarketdataxrp"
+      }).then(function (data) {
+       // console.log(data)
+        
+       // console.log(data.result);
+        let output = [];
+        for (let i = data.result.length; i >= 0; i--) {
+          if(i % 10 === 0){
+            output.push({ x: parseFloat(data.result[i].unixTimestamp), y: parseFloat(data.result[i].last) })
+          }
+        } 
+// console.log(output);
+// console.log(output[0]);
+        // set up options for display
+      var chartdata = {
+        animationEnabled: true,
+        title: {
+          text: "XRP"
+        },
+        axisX: {
+          valueFormatString: "##########"
+        },
+        axisY: {
+          title: "Last Price",
+          prefix: "$",
+          includeZero: false
+        },
+        data: [{
+          yValueFormatString: "$#.###",
+          xValueFormatString: "##########",
+          type: "spline",
+          dataPoints: output,
+        }]
+        };
+        console.log(chartdata.data[0].dataPoints);
+        // console.log(chartdata.data[0);
+        
+        $("#chartContainer2").CanvasJSChart(chartdata);
+      })
 /*
       
           dataPoints: load.data
@@ -141,8 +231,6 @@ console.log(output);
         }]
       };
       */
-//
-//
 //}
   </script>
 
