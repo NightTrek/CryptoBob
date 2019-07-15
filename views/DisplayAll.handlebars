@@ -32,6 +32,7 @@
 </nav>
 
 
+
 {{!-- start of content  --}}
 {{!-- graphs --}}
 <div class="container">
@@ -48,20 +49,20 @@
   <div class="row"></div>
 
 {{!-- NEWs --}}
-<div class="container" id="newsContainer">
-    <div class="row"><div class="col s12 center-align"> <h1>News</h1> </div></div>
-  <div class="row">
-    <div class="col s4 card">
-      <div id="newsContainer1" style="height: 300px; width: 100%;">News 1</div>
+   {{!-- cryptonews Articles dump --}}
     </div>
-    <div class="col s4 card">
-      <div id="newsContainer2" style="height: 300px; width: 100%;">News 2</div></div>
-    <div class="col s4 card">
-      <div id="newsContainer3" style="height: 300px; width: 100%;">News 3</div></div>
-  </div>
-  <div class="row"></div>
-
-</div>
+    <div class="container">
+        <div class="row">
+            {{#each limitednews}}
+            <div class="col s4 News {{this.category}}">
+                <a href={{this.url}}>
+                    <h3>{{this.title}}</h3>
+                </a> 
+                <p>{{this.description}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
 
 
 {{!-- end of content  --}}

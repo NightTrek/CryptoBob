@@ -58,7 +58,24 @@ router.get("/notifications", function (req, res) {
 router.get("/news", async function (req, res) {
     const connection = await sql.GetConnection();
 
-    connection.query("SELECT * FROM cryptoNews", function (err, news) {
+    connection.query("SELECT * FROM cryptoNews LIMIT 12", function (err, news) {
+        if (err) {
+            throw err
+            return
+        }
+        console.log(news)
+        res.render("news", { news: news })
+    })
+    // const results = await sql.selectAllFromTable(connection, "cryptoNews");
+    // console.log(results)
+    // res.render("news", { news: results })
+});
+
+// limited news router
+router.get("/limitednews", async function (req, res) {
+    const connection = await sql.GetConnection();
+
+    connection.query("SELECT * FROM cryptoNews LIMIT 3", function (err, news) {
         if (err) {
             throw err
             return
