@@ -19,22 +19,57 @@ router.get("/watchlist/:id", async function(req, res) {
     try{
     let connection = await sql.GetConnection();
     let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.params.id);
-    let array = watchlistArray[0].watchlistArray;
-    if(watchlistArray[0].watchlistArray.length===0){
+    let array = [];
+    console.log(watchlistArray[0])
+    if(typeof watchlistArray[0] === "undefined"){
         array = ["BTC","XRP", "ETH","BCH"];
 
     }
+    else{
+        array = watchlistArray[0].watchlistArray
+    }
     console.log(array);
     connection.end();
-    let res = await dsc.buildWatchListDataArray(array,'usd');
-    console.log(res);
-    res.send("watchlist", res);
+    let resp = {watchlistItem: await dsc.buildWatchListDataArray(array,'usd')};
+    // console.log(response);
+    res.render("watchlist", resp);
     }
     catch(err){
         console.log(err);
         throw err;
     }
 });
+
+
+//
+
+
+// {watchlistItem:[
+//     {
+//       ticker: 'BTC',
+//       currentPrice: '10809.686',
+//       dayVolume: '1643.12042291',
+//       dayChange: 2.093215288584705
+//     },
+//     {
+//       ticker: 'XRP',
+//       currentPrice: '0.314',
+//       dayVolume: '2231042.90002148',
+//       dayChange: 3.7006369426751653
+//     },
+//     {
+//       ticker: 'ETH',
+//       currentPrice: '228.365',
+//       dayVolume: '7705.18962564',
+//       dayChange: 15.603529437523253
+//     },
+//     {
+//       ticker: 'BCH',
+//       currentPrice: '316.753',
+//       dayVolume: '1852.9489777',
+//       dayChange: 5.623940420453799
+//     }
+//   ]}
 
 //display all current notifications 
 
