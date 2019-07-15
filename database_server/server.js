@@ -6,7 +6,7 @@ const md = require("../scripts/getMarketData");
 var app = express();
 
 // so it will work in heroku
-var PORT = process.env.PORT || 80;
+var PORT = process.env.PORT || 8080;
 
 var exphbs = require("express-handlebars");
 
