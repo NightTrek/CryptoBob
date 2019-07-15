@@ -23,7 +23,7 @@ router.post("/api/marketDataforToken", async function (req, res) {
     // console.log(req.body.data.ticker)   
     logger.log({
         level: 'info',
-        message: `REQ MARKET DATA: FROM:${req.header("Forwarded")}`,
+        message: `REQ MARKET DATA: FROM:${req.body.data.ticker}||${req.body.data.market}`,
 
       }); 
     try{
