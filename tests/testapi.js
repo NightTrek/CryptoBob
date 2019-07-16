@@ -44,6 +44,7 @@ async function main() {
             }
 
             function doInsert() {
+                console.log(articles[index].primaryCategory);
                 connection.query("INSERT INTO cryptoNews (_id, category, title, description, url) VALUES (?,?,?,?,?)", [
                     articles[index]._id,
                     articles[index].primaryCategory,
