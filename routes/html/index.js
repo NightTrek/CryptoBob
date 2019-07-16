@@ -74,10 +74,10 @@ router.get("/watchlist/:id", async function(req, res) {
 //display all current notifications 
 
 router.get("/notifications/:id", async function(req, res) {
-    let connection = await sql.GetConnection();
-    let watchlistArray = await sql.selectSomethingWhere(connection, 'watchlistArray', "users", 'ID', req.body.id);
-    console.log(watchlistArray[0].watchlistArray);
-    connection.end();
+    // let connection = await sql.GetConnection();
+    // let watchlistArray = await sql.selectSomethingWhere(connection, 'notifications', "users", 'ID', req.body.id);
+    // console.log(watchlistArray[0].watchlistArray);
+    // connection.end();
 
     res.render("notifications")
 });

@@ -1,14 +1,5 @@
-<nav>
+<nav class="deep-purple lighten-1">
     <!-- navbar content here  -->
-    <div class="hoverable">
-        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-        <div class="row">
-            <div class="col s3">
-                <h4>My Account</h4>
-            </div>
-        </div>
-    </div>
-
     <ul id="slide-out" class="sidenav">
         <li>
             <div class="user-view">
@@ -20,25 +11,26 @@
                 <a href="#!"><img class="circle hoverable"
                         src="https://theme.zdassets.com/theme_assets/2313093/ea2a7a1391be00c66d006290df37177233bd1467.png"
                         id="image"></a>
-                <a class="subheader" href="#!"><span class="white-text name" id="name">User's Name</span></a>
-                <a class="subheader" href="#!"><span class="white-text email" id="email">User's Email</span></a>
+                <a class="subheader" href="#!"><span class="white-text name" id="userName">User's Name</span></a>
             </div>
         </li>
-        <li><a href="/watchlist:id" class="waves-effect"><i class="material-icons">trending_up</i>Watchlist</a></li>
-        <li><a href="/portfolio" class="waves-effect"><i class="material-icons">insert_chart</i>Portfolio</a></li>
+        <li><a href="/watchlist/:id" class="waves-effect" id="watchlist"><i class="material-icons">trending_up</i>Watchlist</a></li>
+        <li><a href="/account/" class="waves-effect"><i class="material-icons">insert_chart</i>Home</a></li>
         <li><a href="/account/news" class="waves-effect"><i class="material-icons">chrome_reader_mode</i>News</a></li>
-        <li><a href="/account/notifications" class="waves-effect"><i class="material-icons">error</i>Notifications</a>
+        <li><a href="/account/notifications/:id" class="waves-effect" id="notifications"><i class="material-icons">error</i>Notifications</a>
         </li>
         <li>
             <div class="divider"></div>
         </li>
         <li><a class="subheader" href="#!"><i class="material-icons">autorenew</i>Auto Trading (Unavailable)</a></li>
     </ul>
-
+    <div class="hoverable">
+        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+    </div>
 </nav>
 
 {{!-- this div is for the cryptocurrency graphs --}}
-<div class="div">
+<div class="div grey darken-2" >
     {{!-- top div --}}
     <div class="row">
         <h2>Cryptocurrency News</h2>
