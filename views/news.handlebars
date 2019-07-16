@@ -149,6 +149,13 @@
 
     {{!-- cryptonews search button functions --}}
     <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.sidenav');
+        // var instances = M.Sidenav.init(elems, options);
+      });
+
+      
         $('.Blockchain').on('click', function () {
             $('.News').hide()
             $('.Blockchain').show()

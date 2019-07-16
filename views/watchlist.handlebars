@@ -31,6 +31,26 @@
 
 {{!-- ==================================================start of watchlist  --}}
 <section>
+     <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <div class="row">
+        <div class="input-field col s12">
+        <label for="ticker">ticker</label>
+          <input id="ticker" type="text" pattern="[A-Z]{3}"class="validate" placeholder="USD">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+        <label for="price">price</label>
+          <input id="price" type="text" class="validate" placeholder="USD">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
 
     <div class="container main" style="margin-top: 25px">
         <div class="card grey darken-3" style="padding-bottom: 5vh; padding-left:5vw; padding-right:5vw;">
@@ -42,8 +62,8 @@
             </div>
             <div class="row">
                 <div class="col s8"></div>
-                <div class="col s2"><a class="waves-effect waves-light btn deep-purple lighten-1">Add crypto</a></div>
-                <div class="col s2"><a class="waves-effect waves-light btn deep-purple lighten-1">Edit market</a></div>
+                <div class="col s2"><a class="waves-effect waves-light btn deep-purple lighten-1" id="addCrypto">Add crypto</a></div>
+                <div class="col s2"><a class="waves-effect waves-light btn deep-purple lighten-1" id="editMarket">Edit market</a></div>
             </div>
             {{!-- <div class="divider"></div> --}}
             <div class="card grey darken-2">
@@ -108,6 +128,22 @@
         $('#userName').text(sessionStorage.getItem('userName'));
         $("#watchlist").attr("href", `/account/watchlist/${sessionStorage.getItem('userName')}`);
       $("#notifications").attr("href", `/account/notifications/${sessionStorage.getItem('userName')}`);
+
+        $(document).on('click', '#addCrypto', async (event) => {
+            console.log("click1");
+             $("#modal1").modal();
+        });
+        
+
+        $(document).on('click', '#editMarket', async (event) => {
+            console.log("click2");
+             $("#modal2").modal();
+        });
+        
+
+
+
+
 
     });
 
