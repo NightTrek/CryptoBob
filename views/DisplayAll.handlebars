@@ -1,38 +1,32 @@
-<nav>
-  <!-- navbar content here  -->
-  <div class="hoverable">
-    <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-    <div class="row">
-      <div class="col s3">
-        <h4>My Account</h4>
-      </div>
+<nav class="deep-purple lighten-1">
+    <!-- navbar content here  -->
+    <ul id="slide-out" class="sidenav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img
+                        src="https://www.autoassistant.it/directory/wp-content/uploads/2019/06/pexels-photo-949587.jpeg">
+                </div>
+                <!-- img of user goes here, putting a default img for now -->
+                <a href="#!"><img class="circle hoverable"
+                        src="https://theme.zdassets.com/theme_assets/2313093/ea2a7a1391be00c66d006290df37177233bd1467.png"
+                        id="image"></a>
+                <a class="subheader" href="#!"><span class="white-text name" id="userName">User's Name</span></a>
+            </div>
+        </li>
+        <li><a href="/watchlist/:id" class="waves-effect" id="watchlist"><i class="material-icons">trending_up</i>Watchlist</a></li>
+        <li><a href="/account/" class="waves-effect"><i class="material-icons">insert_chart</i>Home</a></li>
+        <li><a href="/account/news" class="waves-effect"><i class="material-icons">chrome_reader_mode</i>News</a></li>
+        <li><a href="/account/notifications/:id" class="waves-effect" id="notifications"><i class="material-icons">error</i>Notifications</a>
+        </li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader" href="#!"><i class="material-icons">autorenew</i>Auto Trading (Unavailable)</a></li>
+    </ul>
+    <div class="hoverable">
+        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
     </div>
-  </div>
-
-  <ul id="slide-out" class="sidenav">
-    <li>
-      <div class="user-view">
-        <div class="background">
-          <img src="https://www.autoassistant.it/directory/wp-content/uploads/2019/06/pexels-photo-949587.jpeg">
-        </div>
-        <!-- img of user goes here, putting a default img for now -->
-        <a href="#!"><img class="circle hoverable"
-            src="https://theme.zdassets.com/theme_assets/2313093/ea2a7a1391be00c66d006290df37177233bd1467.png"
-            id="image"></a>
-        <a class="subheader" href="#!"><span class="white-text name" id="userName">User's Name</span></a>
-
-      </div>
-    </li>
-    <li><a href="/watchlist/:id" class="waves-effect" id="watchlist"><i class="material-icons">trending_up</i>Watchlist</a></li>
-    {{!-- <li><a href="/portfolio" class="waves-effect"><i class="material-icons">insert_chart</i>Portfolio</a></li> --}}
-    <li><a href="/account/news" class="waves-effect"><i class="material-icons">chrome_reader_mode</i>News</a></li>
-    <li><a href="/account/notifications" class="waves-effect" id="notifications"><i class="material-icons">error</i>Notifications</a></li>
-    <li>
-      <div class="divider"></div>
-    </li>
-    <li><a class="subheader" href="#!"><i class="material-icons">autorenew</i>Auto Trading (Unavailable)</a></li>
-  </ul>
-
 </nav>
 
 
@@ -42,17 +36,17 @@
 <div class="container">
   <div class="row">
     <div class="center-align">
-      <h1>Graphs</h1>
+      <h2>current price Graphs</h2>
     </div>
   </div>
   <div class="row">
-    <div class="col s4 card teal">
+    <div class="col s4 card grey darken-2">
       <div id="chartContainer1" style="height: 300px; width: 100%;">ETH</div>
     </div>
-    <div class="col s4 card teal">
+    <div class="col s4 card grey darken-2">
       <div id="chartContainer2" style="height: 300px; width: 100%;">XRP</div>
     </div>
-    <div class="col s4 card teal">
+    <div class="col s4 card grey darken-2">
       <div id="chartContainer3" style="height: 300px; width: 100%;">BTC</div>
     </div>
   </div>
@@ -60,7 +54,7 @@
 
 
   {{!-- NEWs --}}
-  <div class="container" id="newsContainer">
+  <div class="container grey darken-2" id="newsContainer">
     <div class="row">
       <div class="col s12 center-align">
         <h1>News</h1>
@@ -249,7 +243,7 @@
       $(document).ready(function () {
       
       $("#watchlist").attr("href", `/account/watchlist/${sessionStorage.getItem('userName')}`);
-      $("#notifications").attr("href", `/account/notifications/${sessionStorage.getItem('userName')}`)
+      $("#notifications").attr("href", `/account/notifications/${sessionStorage.getItem('userName')}`);
 
         $('#userName').text(sessionStorage.getItem('userName'));
         // // for pulling name and email from local storage

@@ -17,9 +17,9 @@ module.exports = {
                       // //outputArray.push(
                         let watchlistItem = {
                           ticker:watchlistArray[key],
-                          currentPrice:response[0].last,
-                          dayVolume: response[0].Volume,
-                          dayChange: (response[response.length-1].last-response[0].last)/response[0].last*100
+                          currentPrice: parseFloat(response[0].last),
+                          dayVolume: parseFloat(response[0].Volume),
+                          dayChange: parseFloat((response[response.length-1].last-response[0].last)/response[0].last*100)
                       }
                       console.log(watchlistItem);
                       outputArray.push(watchlistItem);
