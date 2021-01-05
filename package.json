@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/ToneDef00/CryptoArcade#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bcrypt": "^3.0.6",
     "canvasjs": "^1.8.1",
     "crypto-news-api": "^2.2.2",
